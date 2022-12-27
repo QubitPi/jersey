@@ -1,8 +1,0 @@
-{
-  "resources": [
-    {"pattern": "org/glassfish/grizzly/version.properties"}
-  ],
-  "bundles": [
-    {"name":"javax.xml.bind.Messages"}
-  ]
-}
