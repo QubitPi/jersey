@@ -22,8 +22,28 @@ cd docs
 mvn package -Dmaven.test.skip
 ```
 
+(The commands above have been tested with OpenJDK 11)
+
 A gh-pages deployable will be generated at **docs/target/docbook/index**. This fork publishes the generated site onto 
 [gh-pages branch under root directory](https://github.com/QubitPi/jersey/tree/gh-pages)
+
+Syncing with [upstream](https://github.com/eclipse-ee4j/jersey)
+---------------------------------------------------------------
+
+This fork has two branches
+
+1. *gh-pages* branch that exclusively host the generated static site
+2. *origin/master* branch which is the default branch of this fork. The syncing we are talking about here happens
+   between this branch and upstream/master
+
+We use a rebase-style sync:
+
+```bash
+git checkout master
+git fetch upstream
+git rebase upstream/master
+git push origin master -f
+```
 
 ---
 
