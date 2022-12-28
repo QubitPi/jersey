@@ -12,6 +12,21 @@
 [//]: # "  "
 [//]: # " SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0 "
 
+Deploying [jersey (fork)](https://github.com/QubitPi/jersey) to GitHub Pages
+============================================================================
+
+Building the documentation site involves **docs** sub-module only in this Maven project:
+
+```bash
+cd docs
+mvn package -Dmaven.test.skip
+```
+
+A gh-pages deployable will be generated at **docs/target/docbook/index**. This fork publishes the generated site onto 
+[gh-pages branch under root directory](https://github.com/QubitPi/jersey/tree/gh-pages)
+
+---
+
 [![Build Status](https://travis-ci.org/eclipse-ee4j/jersey.svg?branch=master)](https://travis-ci.org/eclipse-ee4j/jersey)
 &nbsp;[![EPL-2.0](./etc/epl.svg)](https://www.eclipse.org/legal/epl-2.0/)
 &nbsp;[![GPL+CPE-2.0](./etc/gpl.svg)](https://www.gnu.org/software/classpath/license.html)
