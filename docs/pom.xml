@@ -94,6 +94,7 @@
                     <calloutsExtension>true</calloutsExtension>
                     <highlightDefaultLanguage />
                     <highlightSource>true</highlightSource>
+                    <!-- Use https://github.com/QubitPi/jersey.github.io in case the documentation.css is removed -->
                     <htmlStylesheet>https://eclipse-ee4j.github.io/jersey.github.io/documentation.css</htmlStylesheet>
                     <!--<htmlStylesheet>https://jersey.java.net/documentation.css</htmlStylesheet>-->
                     <linenumberingExtension>true</linenumberingExtension>
