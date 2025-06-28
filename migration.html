@@ -1,6 +1,6 @@
 <html><head>
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-   <title>Chapter&nbsp;31.&nbsp;Migration Guide</title><link rel="stylesheet" type="text/css" href="https://eclipse-ee4j.github.io/jersey.github.io/documentation.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><link rel="home" href="index.html" title="Jersey 2.47-SNAPSHOT User Guide"><link rel="up" href="index.html" title="Jersey 2.47-SNAPSHOT User Guide"><link rel="prev" href="how-to-build.html" title="Chapter&nbsp;30.&nbsp;Building and Testing Jersey"><link rel="next" href="appendix-properties.html" title="Appendix&nbsp;A.&nbsp;Configuration Properties"><script type="text/javascript">
+   <title>Chapter&nbsp;31.&nbsp;Migration Guide</title><link rel="stylesheet" type="text/css" href="https://eclipse-ee4j.github.io/jersey.github.io/documentation.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><link rel="home" href="index.html" title="Jersey 2.48-SNAPSHOT User Guide"><link rel="up" href="index.html" title="Jersey 2.48-SNAPSHOT User Guide"><link rel="prev" href="how-to-build.html" title="Chapter&nbsp;30.&nbsp;Building and Testing Jersey"><link rel="next" href="appendix-properties.html" title="Appendix&nbsp;A.&nbsp;Configuration Properties"><script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-3160303-1']);
             _gaq.push(['_trackPageview']);
@@ -107,7 +107,7 @@
                         <pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
   &lt;groupId&gt;org.glassfish.jersey.inject&lt;/groupId&gt;
   &lt;artifactId&gt;jersey-hk2&lt;/artifactId&gt;
-  &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+  &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></li><li class="listitem">
                         The direct support for <code class="literal">HK2 Binder</code> being able to be registered as in pre 2.26 Jersey has
                         been returned back in Jersey 2.29. Note, however, this is for backward compatibility purposes and
@@ -332,7 +332,7 @@
                             The following needs to be included in addition from version 2.16 on:
                             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">
                                 &lt;dependency&gt; &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt; &lt;artifactId&gt;jersey-media-jaxb&lt;/artifactId&gt;
-                                &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
+                                &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
                         </p></li><li class="listitem"><p>
                             <code class="literal">MediaType</code>'s quality source parameters (<code class="literal">qs</code>) reuse the same
                             parsing as quality parameters. This means that values higher than
@@ -359,11 +359,11 @@
                             The above dependency needs to be replaced with:
                             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">
                                 &lt;dependency&gt; &lt;groupId&gt;org.glassfish.jersey.ext.cdi&lt;/groupId&gt; &lt;artifactId&gt;jersey-cdi1x&lt;/artifactId&gt;
-                                &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
+                                &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
                             The following needs to be included in addition if you want to leverage CDI JTA support:
                             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">
                                 &lt;dependency&gt; &lt;groupId&gt;org.glassfish.jersey.ext.cdi&lt;/groupId&gt; &lt;artifactId&gt;jersey-cdi1x-transaction&lt;/artifactId&gt;
-                                &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
+                                &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
                         </p></li></ul></div><p>
             </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="mig-2.12"></a>31.16.&nbsp;Migrating from Jersey 2.11 to 2.12</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="mig-2.12-highlights"></a>31.16.1.&nbsp;Release 2.12 Highlights</h3></div></div></div><p>Following experimental APIs have been promoted to become part of public Jersey API:
                 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
@@ -1244,7 +1244,7 @@
                                     </td></tr></tbody></table></div></div><p><br class="table-break">
                     </p><div class="example"><a name="d0e21371"></a><p class="title"><b>Example&nbsp;31.5.&nbsp;Initializing JAXB-based support with MOXy</b></p><div class="example-contents"><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">
                             &lt;dependency&gt; &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt; &lt;artifactId&gt;jersey-media-moxy&lt;/artifactId&gt;
-                            &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre></div></div><p><br class="example-break">
+                            &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre></div></div><p><br class="example-break">
                     </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                             For JAXB-based support, MOXy is the default way in Jersey&nbsp;2. However, other providers (<code class="literal">
                             Jackson</code>,<code class="literal">Jettison</code>) can be used as well. The relevant feature has to be

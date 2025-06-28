@@ -1,6 +1,6 @@
 <html><head>
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-   <title>Jersey 2.47-SNAPSHOT User Guide</title><link rel="stylesheet" type="text/css" href="https://eclipse-ee4j.github.io/jersey.github.io/documentation.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><script type="text/javascript">
+   <title>Jersey 2.48-SNAPSHOT User Guide</title><link rel="stylesheet" type="text/css" href="https://eclipse-ee4j.github.io/jersey.github.io/documentation.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-3160303-1']);
             _gaq.push(['_trackPageview']);
@@ -15,7 +15,7 @@
                 Table of Contents
             </a> | <a href="user-guide.html">
                 Single HTML
-            </a></small><div lang="en" class="book"><div class="titlepage"><div><div><h1 class="title"><a name="d0e2"></a>Jersey 2.47-SNAPSHOT User Guide</h1></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="preface"><a href="#preface">Preface</a></span></dt><dt><span class="chapter"><a href="#getting-started">1. Getting Started</a></span></dt><dd><dl><dt><span class="section"><a href="#new-from-archetype">1.1. Creating a New Project from Maven Archetype</a></span></dt><dt><span class="section"><a href="#new-project-structure">1.2. Exploring the Newly Created Project</a></span></dt><dt><span class="section"><a href="#running-project">1.3. Running the Project</a></span></dt><dt><span class="section"><a href="#new-webapp">1.4. Creating a JavaEE Web Application</a></span></dt><dt><span class="section"><a href="#heroku-webapp">1.5. Creating a Web Application that can be deployed on Heroku</a></span></dt><dd><dl><dt><span class="section"><a href="#deploy-it-on-heroku">1.5.1. Deploy it on Heroku</a></span></dt></dl></dd><dt><span class="section"><a href="#exploring-jersey-examples">1.6. Exploring Other Jersey Examples</a></span></dt></dl></dd><dt><span class="chapter"><a href="#modules-and-dependencies">2. Modules and dependencies</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e559">2.1. Java SE Compatibility</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e590">2.1.1. Virtual Threads and Thread Factories</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e626">2.2. Introduction to Jersey dependencies</a></span></dt><dt><span class="section"><a href="#dependencies">2.3. Common Jersey Use Cases</a></span></dt><dd><dl><dt><span class="section"><a href="#servlet-app-glassfish">2.3.1. Servlet based application on Glassfish</a></span></dt><dt><span class="section"><a href="#servlet-app-general">2.3.2. Servlet based server-side application</a></span></dt><dt><span class="section"><a href="#client-jdk">2.3.3. Client application on JDK</a></span></dt><dt><span class="section"><a href="#server-jdk">2.3.4. Server-side application on supported containers</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">2.4. List of modules</a></span></dt></dl></dd><dt><span class="chapter"><a href="#jaxrs-resources">3. JAX-RS Application, Resources and Sub-Resources</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2145">3.1. Root Resource Classes</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2184">3.1.1. @Path</a></span></dt><dt><span class="section"><a href="#d0e2234">3.1.2. @GET, @PUT, @POST, @DELETE, ... (HTTP Methods)</a></span></dt><dt><span class="section"><a href="#d0e2272">3.1.3. @Produces</a></span></dt><dt><span class="section"><a href="#d0e2351">3.1.4. @Consumes</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e2376">3.2. Parameter Annotations (@*Param)</a></span></dt><dt><span class="section"><a href="#d0e2647">3.3. Sub-resources</a></span></dt><dt><span class="section"><a href="#d0e2794">3.4. Life-cycle of Root Resource Classes</a></span></dt><dt><span class="section"><a href="#d0e2865">3.5. Rules of Injection</a></span></dt><dt><span class="section"><a href="#d0e2973">3.6. Use of @Context</a></span></dt><dt><span class="section"><a href="#d0e3001">3.7. Programmatic resource model</a></span></dt></dl></dd><dt><span class="chapter"><a href="#deployment">4. Application Deployment and Runtime Environments</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.intro">4.1. Introduction</a></span></dt><dt><span class="section"><a href="#environmenmt.appmodel">4.2. JAX-RS Application Model</a></span></dt><dt><span class="section"><a href="#deployment.autodiscoverable">4.3. Auto-Discoverable Features</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.autodiscovery.config">4.3.1. Configuring Feature Auto-discovery Mechanism</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.classpath-scanning">4.4. Configuring the Classpath Scanning</a></span></dt><dt><span class="section"><a href="#deployment.javase">4.5. Java SE Deployment Environments</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.http">4.5.1. HTTP servers</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.jaxrs.endpoint">4.6. Creating programmatic JAX-RS endpoint</a></span></dt><dt><span class="section"><a href="#deployment.servlet">4.7. Servlet-based Deployment</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.servlet.2">4.7.1. Servlet 2.x Container</a></span></dt><dt><span class="section"><a href="#deployment.servlet.3">4.7.2. Servlet 3.x Container</a></span></dt><dt><span class="section"><a href="#deployment.servlet.containers">4.7.3. Jersey Servlet container modules</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.javaee">4.8. Java EE Platform</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.javaee.managed">4.8.1. Managed Beans</a></span></dt><dt><span class="section"><a href="#deployment.javaee.cdi">4.8.2. Context and Dependency Injection (CDI)</a></span></dt><dt><span class="section"><a href="#deployment.javaee.ejb">4.8.3. Enterprise Java Beans (EJB)</a></span></dt><dt><span class="section"><a href="#deployment.appservers">4.8.4. Java EE Servers</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.osgi">4.9. OSGi</a></span></dt><dd><dl><dt><span class="section"><a href="#osgi.shell">4.9.1. Enabling the OSGi shell in Glassfish</a></span></dt><dt><span class="section"><a href="#osgi.wab">4.9.2. WAB Example</a></span></dt><dt><span class="section"><a href="#osgi.httpservice">4.9.3. HTTP Service Example</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.other">4.10. Other Environments</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.other.cloud">4.10.1. Oracle Java Cloud Service</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#client">5. Client API</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e4317">5.1. Uniform Interface Constraint</a></span></dt><dt><span class="section"><a href="#d0e4360">5.2. Ease of use and reusing JAX-RS artifacts</a></span></dt><dt><span class="section"><a href="#d0e4476">5.3. Overview of the Client API</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e4479">5.3.1. Getting started with the client API</a></span></dt><dt><span class="section"><a href="#d0e4498">5.3.2. 
+            </a></small><div lang="en" class="book"><div class="titlepage"><div><div><h1 class="title"><a name="d0e2"></a>Jersey 2.48-SNAPSHOT User Guide</h1></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="preface"><a href="#preface">Preface</a></span></dt><dt><span class="chapter"><a href="#getting-started">1. Getting Started</a></span></dt><dd><dl><dt><span class="section"><a href="#new-from-archetype">1.1. Creating a New Project from Maven Archetype</a></span></dt><dt><span class="section"><a href="#new-project-structure">1.2. Exploring the Newly Created Project</a></span></dt><dt><span class="section"><a href="#running-project">1.3. Running the Project</a></span></dt><dt><span class="section"><a href="#new-webapp">1.4. Creating a JavaEE Web Application</a></span></dt><dt><span class="section"><a href="#heroku-webapp">1.5. Creating a Web Application that can be deployed on Heroku</a></span></dt><dd><dl><dt><span class="section"><a href="#deploy-it-on-heroku">1.5.1. Deploy it on Heroku</a></span></dt></dl></dd><dt><span class="section"><a href="#exploring-jersey-examples">1.6. Exploring Other Jersey Examples</a></span></dt></dl></dd><dt><span class="chapter"><a href="#modules-and-dependencies">2. Modules and dependencies</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e559">2.1. Java SE Compatibility</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e590">2.1.1. Virtual Threads and Thread Factories</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e626">2.2. Introduction to Jersey dependencies</a></span></dt><dt><span class="section"><a href="#dependencies">2.3. Common Jersey Use Cases</a></span></dt><dd><dl><dt><span class="section"><a href="#servlet-app-glassfish">2.3.1. Servlet based application on Glassfish</a></span></dt><dt><span class="section"><a href="#servlet-app-general">2.3.2. Servlet based server-side application</a></span></dt><dt><span class="section"><a href="#client-jdk">2.3.3. Client application on JDK</a></span></dt><dt><span class="section"><a href="#server-jdk">2.3.4. Server-side application on supported containers</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">2.4. List of modules</a></span></dt></dl></dd><dt><span class="chapter"><a href="#jaxrs-resources">3. JAX-RS Application, Resources and Sub-Resources</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2145">3.1. Root Resource Classes</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2184">3.1.1. @Path</a></span></dt><dt><span class="section"><a href="#d0e2234">3.1.2. @GET, @PUT, @POST, @DELETE, ... (HTTP Methods)</a></span></dt><dt><span class="section"><a href="#d0e2272">3.1.3. @Produces</a></span></dt><dt><span class="section"><a href="#d0e2351">3.1.4. @Consumes</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e2376">3.2. Parameter Annotations (@*Param)</a></span></dt><dt><span class="section"><a href="#d0e2647">3.3. Sub-resources</a></span></dt><dt><span class="section"><a href="#d0e2794">3.4. Life-cycle of Root Resource Classes</a></span></dt><dt><span class="section"><a href="#d0e2865">3.5. Rules of Injection</a></span></dt><dt><span class="section"><a href="#d0e2973">3.6. Use of @Context</a></span></dt><dt><span class="section"><a href="#d0e3001">3.7. Programmatic resource model</a></span></dt></dl></dd><dt><span class="chapter"><a href="#deployment">4. Application Deployment and Runtime Environments</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.intro">4.1. Introduction</a></span></dt><dt><span class="section"><a href="#environmenmt.appmodel">4.2. JAX-RS Application Model</a></span></dt><dt><span class="section"><a href="#deployment.autodiscoverable">4.3. Auto-Discoverable Features</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.autodiscovery.config">4.3.1. Configuring Feature Auto-discovery Mechanism</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.classpath-scanning">4.4. Configuring the Classpath Scanning</a></span></dt><dt><span class="section"><a href="#deployment.javase">4.5. Java SE Deployment Environments</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.http">4.5.1. HTTP servers</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.jaxrs.endpoint">4.6. Creating programmatic JAX-RS endpoint</a></span></dt><dt><span class="section"><a href="#deployment.servlet">4.7. Servlet-based Deployment</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.servlet.2">4.7.1. Servlet 2.x Container</a></span></dt><dt><span class="section"><a href="#deployment.servlet.3">4.7.2. Servlet 3.x Container</a></span></dt><dt><span class="section"><a href="#deployment.servlet.containers">4.7.3. Jersey Servlet container modules</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.javaee">4.8. Java EE Platform</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.javaee.managed">4.8.1. Managed Beans</a></span></dt><dt><span class="section"><a href="#deployment.javaee.cdi">4.8.2. Context and Dependency Injection (CDI)</a></span></dt><dt><span class="section"><a href="#deployment.javaee.ejb">4.8.3. Enterprise Java Beans (EJB)</a></span></dt><dt><span class="section"><a href="#deployment.appservers">4.8.4. Java EE Servers</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.osgi">4.9. OSGi</a></span></dt><dd><dl><dt><span class="section"><a href="#osgi.shell">4.9.1. Enabling the OSGi shell in Glassfish</a></span></dt><dt><span class="section"><a href="#osgi.wab">4.9.2. WAB Example</a></span></dt><dt><span class="section"><a href="#osgi.httpservice">4.9.3. HTTP Service Example</a></span></dt></dl></dd><dt><span class="section"><a href="#deployment.other">4.10. Other Environments</a></span></dt><dd><dl><dt><span class="section"><a href="#deployment.other.cloud">4.10.1. Oracle Java Cloud Service</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#client">5. Client API</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e4317">5.1. Uniform Interface Constraint</a></span></dt><dt><span class="section"><a href="#d0e4360">5.2. Ease of use and reusing JAX-RS artifacts</a></span></dt><dt><span class="section"><a href="#d0e4476">5.3. Overview of the Client API</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e4479">5.3.1. Getting started with the client API</a></span></dt><dt><span class="section"><a href="#d0e4498">5.3.2. 
                 Creating and configuring a Client instance
             </a></span></dt><dt><span class="section"><a href="#d0e4682">5.3.3. Targeting a web resource</a></span></dt><dt><span class="section"><a href="#d0e4750">5.3.4. Identifying resource on WebTarget</a></span></dt><dt><span class="section"><a href="#d0e4826">5.3.5. Invoking a HTTP request</a></span></dt><dt><span class="section"><a href="#d0e4969">5.3.6. Example summary</a></span></dt><dt><span class="section"><a href="#d0e4998">5.3.7. Setting ExecutorService and ScheduledExecutorService</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e5028">5.4. Java instances and types for representations</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e5047">5.4.1. Adding support for new representations</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e5081">5.5. Client Transport Connectors</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e5291">5.5.1. The default <code class="literal">HttpUrlConnector</code></a></span></dt><dt><span class="section"><a href="#d0e5406">5.5.2. Client Connectors Properties</a></span></dt><dt><span class="section"><a href="#d0e5439">5.5.3. Applying additional settings to Connectors</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e5492">5.6. Using client request and response filters</a></span></dt><dt><span class="section"><a href="#d0e5527">5.7. Closing connections</a></span></dt><dt><span class="section"><a href="#d0e5551">5.8. Injections into client providers</a></span></dt><dt><span class="section"><a href="#d0e5586">5.9. Securing a Client</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e5733">5.9.1. Http Authentication Support</a></span></dt><dt><span class="section"><a href="#d0e5816">5.9.2. Server Name Indication (SNI) Support</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e5876">5.10. InvocationInterceptors</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e5887">5.10.1. PreInvocationInterceptor</a></span></dt><dt><span class="section"><a href="#d0e5923">5.10.2. PostInvocationInterceptor</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e5964">5.11. InvocationBuilderListener</a></span></dt><dt><span class="section"><a href="#d0e5996">5.12. Header Expect:100-continue support</a></span></dt></dl></dd><dt><span class="chapter"><a href="#rx-client">6. Reactive JAX-RS Client API</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e6052">6.1. Motivation for Reactive Client Extension</a></span></dt><dt><span class="section"><a href="#d0e6223">6.2. Usage and Extension Modules</a></span></dt><dt><span class="section"><a href="#rx.client.supported">6.3. Supported Reactive Libraries</a></span></dt><dd><dl><dt><span class="section"><a href="#rx-client.rxjava">6.3.1. RxJava (Observable)</a></span></dt><dt><span class="section"><a href="#rx-client.rxjava2">6.3.2. RxJava (Flowable)</a></span></dt><dt><span class="section"><a href="#rx-client.guava">6.3.3. Guava (ListenableFuture and Futures)</a></span></dt></dl></dd><dt><span class="section"><a href="#rx.client.spi">6.4. Implementing Support for Custom Reactive Libraries (SPI)</a></span></dt></dl></dd><dt><span class="chapter"><a href="#representations">7. Representations and Responses</a></span></dt><dd><dl><dt><span class="section"><a href="#reps-and-types">7.1. Representations and Java Types</a></span></dt><dt><span class="section"><a href="#d0e6811">7.2. Building Responses</a></span></dt><dt><span class="section"><a href="#d0e6848">7.3. WebApplicationException and Mapping Exceptions to Responses</a></span></dt><dt><span class="section"><a href="#d0e6929">7.4. Conditional GETs and Returning 304 (Not Modified) Responses</a></span></dt></dl></dd><dt><span class="chapter"><a href="#message-body-workers">8. JAX-RS Entity Providers</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e6975">8.1. Introduction</a></span></dt><dt><span class="section"><a href="#d0e7009">8.2. How to Write Custom Entity Providers</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e7046">8.2.1. MessageBodyWriter</a></span></dt><dt><span class="section"><a href="#d0e7334">8.2.2. MessageBodyReader</a></span></dt></dl></dd><dt><span class="section"><a href="#providers-selection">8.3. Entity Provider Selection</a></span></dt><dt><span class="section"><a href="#d0e7895">8.4. Jersey <code class="literal">MessageBodyWorkers</code> API</a></span></dt><dt><span class="section"><a href="#d0e7979">8.5. Default Jersey Entity Providers</a></span></dt></dl></dd><dt><span class="chapter"><a href="#media">9. Support for Common Media Type Representations</a></span></dt><dd><dl><dt><span class="section"><a href="#json">9.1. JSON</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e8150">9.1.1. Approaches to JSON Support</a></span></dt><dt><span class="section"><a href="#json.moxy">9.1.2. MOXy</a></span></dt><dt><span class="section"><a href="#json.json-p">9.1.3. Java API for JSON Processing (JSON-P)</a></span></dt><dt><span class="section"><a href="#json.jackson">9.1.4. Jackson (1.x and 2.x)</a></span></dt><dt><span class="section"><a href="#json.jettison">9.1.5. Jettison</a></span></dt><dt><span class="section"><a href="#d0e8956">9.1.6. <code class="literal">@JSONP</code> - JSON with Padding Support</a></span></dt><dt><span class="section"><a href="#json.json-b">9.1.7. Java API for JSON Binding (JSON-B)</a></span></dt><dt><span class="section"><a href="#json.configuration">9.1.8. Properties for configuring JSON providers</a></span></dt></dl></dd><dt><span class="section"><a href="#xml">9.2. XML</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e9215">9.2.1. Low level XML support</a></span></dt><dt><span class="section"><a href="#d0e9263">9.2.2. Getting started with JAXB</a></span></dt><dt><span class="section"><a href="#d0e9351">9.2.3. POJOs</a></span></dt><dt><span class="section"><a href="#d0e9389">9.2.4. Using custom JAXBContext</a></span></dt><dt><span class="section"><a href="#d0e9421">9.2.5. MOXy</a></span></dt><dt><span class="section"><a href="#jaxb.configuration">9.2.6. Properties for configuring XML providers</a></span></dt></dl></dd><dt><span class="section"><a href="#multipart">9.3. Multipart</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e9493">9.3.1. Overview</a></span></dt><dt><span class="section"><a href="#d0e9594">9.3.2. Client</a></span></dt><dt><span class="section"><a href="#d0e9725">9.3.3. Server</a></span></dt><dt><span class="section"><a href="#multipart.configuration">9.3.4. Properties for configuring the Multipart</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#filters-and-interceptors">10. Filters and Interceptors</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e9982">10.1. Introduction</a></span></dt><dt><span class="section"><a href="#d0e9987">10.2. Filters</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e10016">10.2.1. Server filters</a></span></dt><dt><span class="section"><a href="#d0e10121">10.2.2. Client filters</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e10156">10.3. Interceptors</a></span></dt><dt><span class="section"><a href="#d0e10265">10.4. Filter and interceptor execution order</a></span></dt><dt><span class="section"><a href="#d0e10326">10.5. Name binding</a></span></dt><dt><span class="section"><a href="#d0e10399">10.6. Dynamic binding</a></span></dt><dt><span class="section"><a href="#d0e10467">10.7. Priorities</a></span></dt></dl></dd><dt><span class="chapter"><a href="#async">11. Asynchronous Services and Clients</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e10546">11.1. Asynchronous Server API</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e10667">11.1.1. Asynchronous Server-side Callbacks</a></span></dt><dt><span class="section"><a href="#chunked-output">11.1.2. Chunked Output</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e10797">11.2. Client API</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e10860">11.2.1. Asynchronous Client Callbacks</a></span></dt><dt><span class="section"><a href="#d0e10936">11.2.2. Chunked input</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#uris-and-links">12. URIs and Links</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e11019">12.1. Building URIs</a></span></dt><dt><span class="section"><a href="#d0e11093">12.2. Resolve and Relativize</a></span></dt><dt><span class="section"><a href="#d0e11136">12.3. Link</a></span></dt></dl></dd><dt><span class="chapter"><a href="#declarative-linking">13. Declarative Hyperlinking</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e11192">13.1. Dependency</a></span></dt><dt><span class="section"><a href="#d0e11215">13.2. Links in Representations</a></span></dt><dt><span class="section"><a href="#d0e11251">13.3. List of Link Injection</a></span></dt><dt><span class="section"><a href="#d0e11259">13.4. Links from Resources</a></span></dt><dt><span class="section"><a href="#d0e11287">13.5. Binding Template Parameters</a></span></dt><dt><span class="section"><a href="#d0e11359">13.6. Conditional Link Injection</a></span></dt><dt><span class="section"><a href="#d0e11381">13.7. Link Headers</a></span></dt><dt><span class="section"><a href="#d0e11422">13.8. Prevent Recursive Injection</a></span></dt><dt><span class="section"><a href="#d0e11442">13.9. Meta-annotation support</a></span></dt><dt><span class="section"><a href="#d0e11497">13.10. Configure and register</a></span></dt></dl></dd><dt><span class="chapter"><a href="#resource-builder">14. Programmatic API for Building Resources</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e11515">14.1. Introduction</a></span></dt><dt><span class="section"><a href="#d0e11560">14.2. Programmatic Hello World example</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e11632">14.2.1. Deployment of programmatic resources</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e11694">14.3. Additional examples</a></span></dt><dt><span class="section"><a href="#d0e11754">14.4. Model processors</a></span></dt></dl></dd><dt><span class="chapter"><a href="#jersey-configuration">15. Jersey configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#default-config">15.1. Jersey default configuration provider</a></span></dt><dt><span class="section"><a href="#mp-config">15.2. Micro profile configuration provider</a></span></dt></dl></dd><dt><span class="chapter"><a href="#jersey-micrometer">16. Micrometer - application observability facade</a></span></dt><dd><dl><dt><span class="section"><a href="#micrometer-integration">16.1. Integration into Jersey</a></span></dt></dl></dd><dt><span class="chapter"><a href="#sse">17. Server-Sent Events (SSE) Support</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e11942">17.1. What are Server-Sent Events</a></span></dt><dt><span class="section"><a href="#d0e11985">17.2. When to use Server-Sent Events</a></span></dt><dt><span class="section"><a href="#jaxrs-sse-api-overview">17.3. Server-Sent Events API</a></span></dt><dt><span class="section"><a href="#d0e12047">17.4. Implementing SSE support in a JAX-RS resource (with JAX-RS SSE API)</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e12050">17.4.1. Simple SSE resource method</a></span></dt><dt><span class="section"><a href="#d0e12226">17.4.2. Broadcasting with Jersey SSE</a></span></dt></dl></dd><dt><span class="section"><a href="#sse-client-jaxrs">17.5. Consuming SSE events within Jersey clients</a></span></dt><dd><dl><dt><span class="section"><a href="#sse-event-source-reconnect">17.5.1. 
                 <code class="literal">SseEventSource</code>
@@ -46,7 +46,7 @@
                         </a></dt><dt>18.4. <a href="#d0e13283">Registering RolesAllowedDynamicFeature using ResourceConfig</a></dt><dt>18.5. <a href="#d0e13298">Registering RolesAllowedDynamicFeature by extending ResourceConfig</a></dt><dt>18.6. <a href="#d0e13309">Applying <code class="literal">javax.annotation.security</code> to JAX-RS resource methods.</a></dt><dt>18.7. <a href="#d0e13596">Build the authorization flow utility</a></dt><dt>18.8. <a href="#d0e13621">Perform the OAuth Authorization Flow</a></dt><dt>18.9. <a href="#d0e13665">Authenticated requests</a></dt><dt>18.10. <a href="#d0e13688">Build feature from Access Token</a></dt><dt>18.11. <a href="#d0e13722">Specifying Access Token on a Request.</a></dt><dt>18.12. <a href="#d0e13745">Creating Public/Private RSA-SHA1 keys</a></dt><dt>18.13. <a href="#d0e13844">Building OAuth 2 Authorization Flow.</a></dt><dt>19.1. <a href="#d0e13914">A simple WADL example - JAX-RS resource definition</a></dt><dt>19.2. <a href="#d0e13951">A simple WADL example - WADL content</a></dt><dt>19.3. <a href="#d0e14081">OPTIONS method returning WADL</a></dt><dt>19.4. <a href="#d0e14104">More complex WADL example - JAX-RS resource definition</a></dt><dt>19.5. <a href="#d0e14116">More complex WADL example - WADL content</a></dt><dt>20.1. <a href="#bv.example.jersey.properties">Configuring Jersey specific properties for Bean Validation.</a></dt><dt>20.2. <a href="#bv.example.ValidationConfig">Using <code class="literal">ValidationConfig</code> to configure <code class="literal">Validator</code>.</a></dt><dt>20.3. <a href="#bv.example.constraints">Constraint annotations on input parameters</a></dt><dt>20.4. <a href="#bv.example.constraints.fields">Constraint annotations on fields</a></dt><dt>20.5. <a href="#bv.example.constraints.class">Constraint annotations on class</a></dt><dt>20.6. <a href="#bv.example.constraints.definition">Definition of a constraint annotation</a></dt><dt>20.7. <a href="#bv.example.validator.definition">Validator implementation.</a></dt><dt>20.8. <a href="#bv.example.constraints.entity">Entity validation</a></dt><dt>20.9. <a href="#bv.example.constraints.entity2">Entity validation 2</a></dt><dt>20.10. <a href="#bv.example.constraints.entity.response">Response entity validation</a></dt><dt>20.11. <a href="#bv.example.validateonexecution">Validate getter on execution</a></dt><dt>20.12. <a href="#bv.examples.injecting">Injecting UriInfo into a ConstraintValidator</a></dt><dt>20.13. <a href="#bv.examples.injecting.factory">Support for injecting Jersey's resources/providers via ConstraintValidatorFactory.</a></dt><dt>20.14. <a href="#d0e14934"><code class="literal">ValidationError</code> to <code class="literal">text/plain</code></a></dt><dt>20.15. <a href="#d0e14944"><code class="literal">ValidationError</code> to <code class="literal">text/html</code></a></dt><dt>20.16. <a href="#d0e14954"><code class="literal">ValidationError</code> to <code class="literal">application/xml</code></a></dt><dt>20.17. <a href="#d0e14964"><code class="literal">ValidationError</code> to <code class="literal">application/json</code></a></dt><dt>21.1. <a href="#ef.example.server.registration">Registering and configuring entity-filtering feature on server.</a></dt><dt>21.2. <a href="#ef.example.server.security.registration">Registering and configuring entity-filtering feature with security annotations on server.</a></dt><dt>21.3. <a href="#ef.example.server.selectable.registration">Registering and configuring entity-filtering feature based on dynamic and configurable query parameters.</a></dt><dt>21.4. <a href="#ef.example.client.registration">Registering and configuring entity-filtering feature on client.</a></dt><dt>21.5. <a href="#d0e15148">Project</a></dt><dt>21.6. <a href="#d0e15154">User</a></dt><dt>21.7. <a href="#d0e15160">Task</a></dt><dt>21.8. <a href="#d0e15171">ProjectsResource</a></dt><dt>21.9. <a href="#ef.annotations.sample.annotation">ProjectDetailedView</a></dt><dt>21.10. <a href="#d0e15227">Annotated Project</a></dt><dt>21.11. <a href="#d0e15233">Annotated User</a></dt><dt>21.12. <a href="#d0e15239">Annotated Task</a></dt><dt>21.13. <a href="#d0e15292">ProjectsResource - Response entity-filtering annotations</a></dt><dt>21.14. <a href="#d0e15298">ProjectsResource - Entity-filtering annotations on methods</a></dt><dt>21.15. <a href="#d0e15409">Client - Request entity-filtering annotations</a></dt><dt>21.16. <a href="#d0e15415">Client - Request entity-filtering annotations</a></dt><dt>21.17. <a href="#d0e15490">Sever - Query Parameter driven entity-filtering</a></dt><dt>21.18. <a href="#d0e15504"></a></dt><dt>21.19. <a href="#ef.custom.annotations.annotation">Entity-filtering annotation with custom meaning</a></dt><dt>21.20. <a href="#ef.modules.custom">Entity Data Filtering support in MOXy JSON binding provider</a></dt><dt>22.1. <a href="#mvc.example.viewable.simple">Using <code class="literal">Viewable</code> in a resource class</a></dt><dt>22.2. <a href="#mvc.example.template.simple">Using <code class="literal">@Template</code> on a resource method</a></dt><dt>22.3. <a href="#mvc.example.implicit.class">Using <code class="literal">@Template</code> on a resource class</a></dt><dt>22.4. <a href="#mvc.example.viewable.absolutePath">Using absolute path to template in <code class="literal">Viewable</code></a></dt><dt>22.5. <a href="#mvc.example.error.simple">Using <code class="literal">@ErrorTemplate</code> on a resource method</a></dt><dt>22.6. <a href="#mvc.example.error.bv">Using <code class="literal">@ErrorTemplate</code> with Bean Validation</a></dt><dt>22.7. <a href="#mvc.example.error.bv.jsp">Iterating through <code class="literal">ValidationError</code> in JSP</a></dt><dt>22.8. <a href="#d0e16051">Registering <code class="literal">MvcFeature</code></a></dt><dt>22.9. <a href="#d0e16059">Registering <code class="literal">FreemarkerMvcFeature</code></a></dt><dt>22.10. <a href="#mvc.ex.rc.properties">Setting <code class="literal">MvcFeature.TEMPLATE_BASE_PATH</code> value in <code class="literal">ResourceConfig</code></a></dt><dt>22.11. <a href="#mvc.ex.web.xml.properties">Setting <code class="literal">FreemarkerMvcProperties.TEMPLATE_BASE_PATH</code> value in <code class="literal">web.xml</code></a></dt><dt>22.12. <a href="#d0e16414">Including JSP page into JSP page</a></dt><dt>22.13. <a href="#d0e16453">Custom TemplateProcessor</a></dt><dt>22.14. <a href="#d0e16461">Registering custom TemplateProcessor</a></dt><dt>23.1. <a href="#d0e16692">Logging on the client side</a></dt><dt>23.2. <a href="#d0e16709">Register <code class="literal">LoggingFeature</code> via constructor
                     </a></dt><dt>23.3. <a href="#d0e16726">Register <code class="literal">LoggingFeature</code> class
                     </a></dt><dt>24.1. <a href="#d0e16827">Application event listener</a></dt><dt>24.2. <a href="#d0e16833">Request event listener</a></dt><dt>24.3. <a href="#d0e16839">Event listener test resource</a></dt><dt>24.4. <a href="#d0e17044">Injecting MonitoringStatistics</a></dt><dt>24.5. <a href="#d0e17761">Summary level messages</a></dt><dt>24.6. <a href="#d0e17778">On demand request, snippet of MVC JSP forwarding</a></dt><dt>26.1. <a href="#d0e18342">Bootstrapping Jersey application with Weld support on Grizzly</a></dt><dt>31.1. <a href="#d0e21032">Jersey 1 reloader implementation</a></dt><dt>31.2. <a href="#d0e21038">Jersey 1 reloader registration</a></dt><dt>31.3. <a href="#d0e21078">Jersey 2 reloader implementation</a></dt><dt>31.4. <a href="#d0e21084">Jersey 2 reloader registration</a></dt><dt>31.5. <a href="#d0e21370">Initializing JAXB-based support with MOXy</a></dt></dl></div><div class="preface"><div class="titlepage"><div><div><h1 class="title"><a name="preface"></a>Preface</h1></div></div></div><p>
-            This is user guide for Jersey 2.47-SNAPSHOT. We are trying to keep it up to date as we add new features.
+            This is user guide for Jersey 2.48-SNAPSHOT. We are trying to keep it up to date as we add new features.
             When reading the user guide, please consult also our
             <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/apidocs/snapshot/jersey/index.html" target="_top">Jersey API documentation</a> as an additional source
             of information about Jersey features and API.
@@ -124,7 +124,7 @@ This line fits the page width.
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: bash;&#xA;    gutter: false;">mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-grizzly2 \
 -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false \
 -DgroupId=com.example -DartifactId=simple-service -Dpackage=com.example \
--DarchetypeVersion=2.47-SNAPSHOT</pre><p>
+-DarchetypeVersion=2.48-SNAPSHOT</pre><p>
 
             Feel free to adjust the <code class="literal">groupId</code>, <code class="literal">package</code> and/or <code class="literal">artifactId</code>
             of your new project. Alternatively, you can change it by updating the new project pom.xml once it gets generated.
@@ -330,7 +330,7 @@ Got it!</pre><p>
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: bash;&#xA;    gutter: false;">mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-webapp \
                 -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false \
                 -DgroupId=com.example -DartifactId=simple-service-webapp -Dpackage=com.example \
-                -DarchetypeVersion=2.47-SNAPSHOT</pre><p>
+                -DarchetypeVersion=2.48-SNAPSHOT</pre><p>
 
             As with the Grizzly based project, feel free to adjust the <code class="literal">groupId</code>, <code class="literal">package</code>
             and/or <code class="literal">artifactId</code> of your new web application project. Alternatively, you can change it by updating
@@ -395,7 +395,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: bash;&#xA;    gutter: false;">mvn archetype:generate -DarchetypeArtifactId=jersey-heroku-webapp \
                 -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false \
                 -DgroupId=com.example -DartifactId=simple-heroku-webapp -Dpackage=com.example \
-                -DarchetypeVersion=2.47-SNAPSHOT</pre><p>
+                -DarchetypeVersion=2.48-SNAPSHOT</pre><p>
 
             Adjust the <code class="literal">groupId</code>, <code class="literal">package</code> and/or <code class="literal">artifactId</code> of your new web
             application project to your needs or, alternatively, you can change it by updating the new project <code class="literal">pom.xml</code> once it
@@ -647,7 +647,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
             Feel free to browse through the code of individual
             <a class="link" href="https://github.com/eclipse-ee4j/jersey/tree/master/examples" target="_top">Jersey Examples</a> in the Jersey source repository.
             For off-line browsing, you can also download a bundle with all the examples from
-            <a class="link" href="http://central.maven.org/maven2/org/glassfish/jersey/bundles/jersey-examples/2.47-SNAPSHOT/" target="_top">here</a>.
+            <a class="link" href="http://central.maven.org/maven2/org/glassfish/jersey/bundles/jersey-examples/2.48-SNAPSHOT/" target="_top">here</a>.
         </p></div></div><div lang="en" class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="modules-and-dependencies"></a>Chapter&nbsp;2.&nbsp;Modules and dependencies</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="section"><a href="#d0e559">2.1. Java SE Compatibility</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e590">2.1.1. Virtual Threads and Thread Factories</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e626">2.2. Introduction to Jersey dependencies</a></span></dt><dt><span class="section"><a href="#dependencies">2.3. Common Jersey Use Cases</a></span></dt><dd><dl><dt><span class="section"><a href="#servlet-app-glassfish">2.3.1. Servlet based application on Glassfish</a></span></dt><dt><span class="section"><a href="#servlet-app-general">2.3.2. Servlet based server-side application</a></span></dt><dt><span class="section"><a href="#client-jdk">2.3.3. Client application on JDK</a></span></dt><dt><span class="section"><a href="#server-jdk">2.3.4. Server-side application on supported containers</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">2.4. List of modules</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e559"></a>2.1.&nbsp;Java SE Compatibility</h2></div></div></div><p>
             <span class="emphasis"><em>2.x branch: </em></span>
             </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Until version 2.6, Jersey was compiled with Java SE 6. This has changed in Jersey 2.7.</p></li><li class="listitem"><p>Up to version 2.25.x almost all Jersey components are compiled with Java SE 7 target.
@@ -702,14 +702,14 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 &lt;/dependency&gt;</pre><p>If you are using any Jersey specific feature, you will need to depend on Jersey directly.</p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-servlet&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
     &lt;scope&gt;provided&lt;/scope&gt;
 &lt;/dependency&gt;
 &lt;!-- if you are using Jersey client specific features without the server side --&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.core&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-client&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
     &lt;scope&gt;provided&lt;/scope&gt;
 &lt;/dependency&gt;
             </pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="servlet-app-general"></a>2.3.2.&nbsp;Servlet based server-side application</h3></div></div></div><p>Following dependencies apply to application server (servlet containers) without any
@@ -718,13 +718,13 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;!-- if your container implements Servlet API older than 3.0, use "jersey-container-servlet-core"  --&gt;
     &lt;artifactId&gt;jersey-container-servlet&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 &lt;!-- Required only when you are using JAX-RS Client --&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.core&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-client&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="client-jdk"></a>2.3.3.&nbsp;Client application on JDK</h3></div></div></div><p>Applications running on plain JDK using only client part of JAX-RS specification need
                 to depend only on client. There are various additional modules which can be added, like
                 for example grizzly or apache or jetty connector (see dependencies snipped below). Jersey client
@@ -733,24 +733,24 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.core&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-client&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
             </pre><p>Currently available connectors:</p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.connectors&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-grizzly-connector&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.connectors&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-apache-connector&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.connectors&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-jetty-connector&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="server-jdk"></a>2.3.4.&nbsp;Server-side application on supported containers</h3></div></div></div><p>Apart for a standard JAX-RS Servlet-based deployment that works with any Servlet container that
                 supports Servlet 2.5 and higher,
                 Jersey provides support for programmatic deployment to the following containers: Grizzly 2 (HTTP and Servlet),
@@ -759,704 +759,704 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-grizzly2-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-grizzly2-servlet&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-jdk-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-simple-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-jetty-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-jetty-servlet&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div></div><div lang="en" class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="modules"></a>2.4.&nbsp;List of modules</h2></div></div></div><p>The following chapters provide an overview of all Jersey modules
         and their dependencies with links to the respective binaries (follow a link
         on a module name to get complete set of downloadable dependencies).
     </p><div class="table"><a name="dependencies-table-org.glassfish.jersey.core"></a><p class="title"><b>Table&nbsp;2.1.&nbsp;Jersey Core</b></p><div class="table-contents"><table class="table" summary="Jersey Core" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Core</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/jersey-client/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/jersey-client/dependencies.html" target="_top">
     jersey-client
 </a>
 </td><td align="left">Jersey core client implementation</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/jersey-common/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/jersey-common/dependencies.html" target="_top">
     jersey-common
 </a>
 </td><td align="left">Jersey core common packages</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/jersey-server/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/jersey-server/dependencies.html" target="_top">
     jersey-server
 </a>
 </td><td align="left">Jersey core server implementation</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.containers"></a><p class="title"><b>Table&nbsp;2.2.&nbsp;Jersey Containers</b></p><div class="table-contents"><table class="table" summary="Jersey Containers" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Containers</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-grizzly2-http/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-grizzly2-http/dependencies.html" target="_top">
     jersey-container-grizzly2-http
 </a>
 </td><td align="left">Grizzly 2 Http Container.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-grizzly2-servlet/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-grizzly2-servlet/dependencies.html" target="_top">
     jersey-container-grizzly2-servlet
 </a>
 </td><td align="left">Grizzly 2 Servlet Container.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-jdk-http/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-jdk-http/dependencies.html" target="_top">
     jersey-container-jdk-http
 </a>
 </td><td align="left">JDK Http Container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-jetty-http/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-jetty-http/dependencies.html" target="_top">
     jersey-container-jetty-http
 </a>
 </td><td align="left">Jetty Http Container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-jetty-http2/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-jetty-http2/dependencies.html" target="_top">
     jersey-container-jetty-http2
 </a>
 </td><td align="left">Jetty HTTP/2 Container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-jetty-servlet/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-jetty-servlet/dependencies.html" target="_top">
     jersey-container-jetty-servlet
 </a>
 </td><td align="left">Jetty Servlet Container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-netty-http/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-netty-http/dependencies.html" target="_top">
     jersey-container-netty-http
 </a>
 </td><td align="left">Netty Http Container.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-servlet/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-servlet/dependencies.html" target="_top">
     jersey-container-servlet
 </a>
 </td><td align="left">Jersey core Servlet 3.x implementation</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-servlet-core/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-servlet-core/dependencies.html" target="_top">
     jersey-container-servlet-core
 </a>
 </td><td align="left">Jersey core Servlet 2.x implementation</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-container-simple-http/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-container-simple-http/dependencies.html" target="_top">
     jersey-container-simple-http
 </a>
 </td><td align="left">Simple Http Container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-gf-ejb/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-gf-ejb/dependencies.html" target="_top">
     jersey-gf-ejb
 </a>
 </td><td align="left">Jersey EJB for GlassFish integration</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.connectors"></a><p class="title"><b>Table&nbsp;2.3.&nbsp;Jersey Connectors</b></p><div class="table-contents"><table class="table" summary="Jersey Connectors" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Connectors</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-apache5-connector/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-apache5-connector/dependencies.html" target="_top">
     jersey-apache5-connector
 </a>
 </td><td align="left">Jersey Client Transport via Apache 5</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-apache-connector/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-apache-connector/dependencies.html" target="_top">
     jersey-apache-connector
 </a>
 </td><td align="left">Jersey Client Transport via Apache</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-grizzly-connector/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-grizzly-connector/dependencies.html" target="_top">
     jersey-grizzly-connector
 </a>
 </td><td align="left">Jersey Client Transport via Grizzly</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-helidon-connector/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-helidon-connector/dependencies.html" target="_top">
     jersey-helidon-connector
 </a>
 </td><td align="left">Jersey Client Transport via Helidon</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-jdk-connector/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-jdk-connector/dependencies.html" target="_top">
     jersey-jdk-connector
 </a>
 </td><td align="left">Jersey Client Transport via JDK connector</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-jetty-connector/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-jetty-connector/dependencies.html" target="_top">
     jersey-jetty-connector
 </a>
 </td><td align="left">Jersey Client Transport via Jetty</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-jetty-http2-connector/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-jetty-http2-connector/dependencies.html" target="_top">
     jersey-jetty-http2-connector
 </a>
 </td><td align="left">Jersey Client Transport via Jetty with HTTP/2 support</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-netty-connector/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-netty-connector/dependencies.html" target="_top">
     jersey-netty-connector
 </a>
 </td><td align="left">Jersey Client Transport via Netty</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.media"></a><p class="title"><b>Table&nbsp;2.4.&nbsp;Jersey Media</b></p><div class="table-contents"><table class="table" summary="Jersey Media" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Media</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-jaxb/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-jaxb/dependencies.html" target="_top">
     jersey-media-jaxb
 </a>
 </td><td align="left">JAX-RS features based upon JAX-B.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-binding/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-binding/dependencies.html" target="_top">
     jersey-media-json-binding
 </a>
 </td><td align="left">Jersey JSON-B support module.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-jackson/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-jackson/dependencies.html" target="_top">
     jersey-media-json-jackson
 </a>
 </td><td align="left">Jersey JSON Jackson (2.x) entity providers support module.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-jackson1/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-jackson1/dependencies.html" target="_top">
     jersey-media-json-jackson1
 </a>
 </td><td align="left">Jersey JSON Jackson (1.x) entity providers support module.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-jettison/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-jettison/dependencies.html" target="_top">
     jersey-media-json-jettison
 </a>
 </td><td align="left">Jersey JSON Jettison entity providers support module.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-processing/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-processing/dependencies.html" target="_top">
     jersey-media-json-processing
 </a>
 </td><td align="left">Jersey JSON-P (JSR 353) entity providers support proxy module.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-kryo/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-kryo/dependencies.html" target="_top">
     jersey-media-kryo
 </a>
 </td><td align="left">Jersey/JAX-RS Message Body Writer and Reader using Kryo serialization framework</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-moxy/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-moxy/dependencies.html" target="_top">
     jersey-media-moxy
 </a>
 </td><td align="left">Jersey JSON entity providers support module based on EclipseLink MOXy.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-multipart/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-multipart/dependencies.html" target="_top">
     jersey-media-multipart
 </a>
 </td><td align="left">Jersey Multipart entity providers support module.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-sse/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-sse/dependencies.html" target="_top">
     jersey-media-sse
 </a>
 </td><td align="left">Jersey Server Sent Events entity providers support module.</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.ext"></a><p class="title"><b>Table&nbsp;2.5.&nbsp;Jersey Extensions</b></p><div class="table-contents"><table class="table" summary="Jersey Extensions" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Extensions</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-bean-validation/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-bean-validation/dependencies.html" target="_top">
     jersey-bean-validation
 </a>
 </td><td align="left">Jersey extension module providing support for Bean Validation (JSR-349) API.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-cdi1x/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-cdi1x/dependencies.html" target="_top">
     jersey-cdi1x
 </a>
 </td><td align="left">Jersey CDI 1.1 integration</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-cdi1x-ban-custom-hk2-binding/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-cdi1x-ban-custom-hk2-binding/dependencies.html" target="_top">
     jersey-cdi1x-ban-custom-hk2-binding
 </a>
 </td><td align="left">Jersey CDI integration - this module disables custom HK2 bindings</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-cdi1x-servlet/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-cdi1x-servlet/dependencies.html" target="_top">
     jersey-cdi1x-servlet
 </a>
 </td><td align="left">Jersey CDI 1.x Servlet Support</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-cdi1x-transaction/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-cdi1x-transaction/dependencies.html" target="_top">
     jersey-cdi1x-transaction
 </a>
 </td><td align="left">Jersey CDI 1.x Transactional Support</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-cdi1x-validation/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-cdi1x-validation/dependencies.html" target="_top">
     jersey-cdi1x-validation
 </a>
 </td><td align="left">Jersey CDI 1.x Bean Validation Support</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-declarative-linking/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-declarative-linking/dependencies.html" target="_top">
     jersey-declarative-linking
 </a>
 </td><td align="left">Jersey support for declarative hyperlinking.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-entity-filtering/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-entity-filtering/dependencies.html" target="_top">
     jersey-entity-filtering
 </a>
 </td><td align="left">Jersey extension module providing support for Entity Data Filtering.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-metainf-services/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-metainf-services/dependencies.html" target="_top">
     jersey-metainf-services
 </a>
 </td><td align="left">Jersey extension module enabling automatic registration of JAX-RS providers (MBW/MBR/EM) via META-INF/services mechanism.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-micrometer/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-micrometer/dependencies.html" target="_top">
     jersey-micrometer
 </a>
 </td><td align="left">Jersey extension module providing support for Micrometer.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-mp-config/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-mp-config/dependencies.html" target="_top">
     jersey-mp-config
 </a>
 </td><td align="left">Jersey extension module providing support for MicroProfile Configuration.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-mp-rest-client/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-mp-rest-client/dependencies.html" target="_top">
     jersey-mp-rest-client
 </a>
 </td><td align="left">Jersey extension module providing support for MicroProfile REST Client.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc/dependencies.html" target="_top">
     jersey-mvc
 </a>
 </td><td align="left">Jersey extension module providing support for MVC.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc-bean-validation/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc-bean-validation/dependencies.html" target="_top">
     jersey-mvc-bean-validation
 </a>
 </td><td align="left">Jersey extension module providing support for Bean Validation in MVC.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc-freemarker/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc-freemarker/dependencies.html" target="_top">
     jersey-mvc-freemarker
 </a>
 </td><td align="left">Jersey extension module providing support for Freemarker templates.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc-jsp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc-jsp/dependencies.html" target="_top">
     jersey-mvc-jsp
 </a>
 </td><td align="left">Jersey extension module providing support for JSP templates.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc-mustache/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc-mustache/dependencies.html" target="_top">
     jersey-mvc-mustache
 </a>
 </td><td align="left">Jersey extension module providing support for Mustache templates.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-proxy-client/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-proxy-client/dependencies.html" target="_top">
     jersey-proxy-client
 </a>
 </td><td align="left">Jersey extension module providing support for (proxy-based) high-level client API.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-rx-client-guava/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-rx-client-guava/dependencies.html" target="_top">
     jersey-rx-client-guava
 </a>
 </td><td align="left">Jersey Reactive Client - Guava (ListenableFuture) provider.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-rx-client-rxjava/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-rx-client-rxjava/dependencies.html" target="_top">
     jersey-rx-client-rxjava
 </a>
 </td><td align="left">Jersey Reactive Client - RxJava (Observable) provider.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-rx-client-rxjava2/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-rx-client-rxjava2/dependencies.html" target="_top">
     jersey-rx-client-rxjava2
 </a>
 </td><td align="left">Jersey Reactive Client - RxJava2 (Flowable) provider.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-servlet-portability/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-servlet-portability/dependencies.html" target="_top">
     jersey-servlet-portability
 </a>
 </td><td align="left">Library that enables writing web applications that run with both Jersey 1.x and Jersey 2.x servlet containers.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-spring4/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-spring4/dependencies.html" target="_top">
     jersey-spring4
 </a>
 </td><td align="left">Jersey extension module providing support for Spring 4 integration.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-spring5/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-spring5/dependencies.html" target="_top">
     jersey-spring5
 </a>
 </td><td align="left">Jersey extension module providing support for Spring 5 integration.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-wadl-doclet/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-wadl-doclet/dependencies.html" target="_top">
     jersey-wadl-doclet
 </a>
 </td><td align="left">A doclet that generates a resourcedoc xml file: this file contains the javadoc documentation
         of resource classes, so that this can be used for extending generated wadl with useful
         documentation.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-weld2-se/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-weld2-se/dependencies.html" target="_top">
     jersey-weld2-se
 </a>
 </td><td align="left">WELD 2.x SE support</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.test-framework"></a><p class="title"><b>Table&nbsp;2.6.&nbsp;Jersey Test Framework</b></p><div class="table-contents"><table class="table" summary="Jersey Test Framework" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Test Framework</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/container-runner-maven-plugin/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/container-runner-maven-plugin/dependencies.html" target="_top">
     container-runner-maven-plugin
 </a>
 </td><td align="left">The container runner maven plugin provides means to start and stop a container (currently, Weblogic, Tomcat and Glassfish4
         are supported). To deploy an application to this container or to repetitively redeploy and test an application in the container.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/custom-enforcer-rules/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/custom-enforcer-rules/dependencies.html" target="_top">
     custom-enforcer-rules
 </a>
 </td><td align="left">Jersey test framework Maven projects</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-test-framework-core/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-test-framework-core/dependencies.html" target="_top">
     jersey-test-framework-core
 </a>
 </td><td align="left">Jersey Test Framework Core</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-bundle/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-bundle/dependencies.html" target="_top">
     jersey-test-framework-provider-bundle
 </a>
 </td><td align="left">Jersey Test Framework Providers Bundle</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-external/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-external/dependencies.html" target="_top">
     jersey-test-framework-provider-external
 </a>
 </td><td align="left">Jersey Test Framework - External container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-grizzly2/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-grizzly2/dependencies.html" target="_top">
     jersey-test-framework-provider-grizzly2
 </a>
 </td><td align="left">Jersey Test Framework - Grizzly2 container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-inmemory/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-inmemory/dependencies.html" target="_top">
     jersey-test-framework-provider-inmemory
 </a>
 </td><td align="left">Jersey Test Framework - InMemory container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-jdk-http/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-jdk-http/dependencies.html" target="_top">
     jersey-test-framework-provider-jdk-http
 </a>
 </td><td align="left">Jersey Test Framework - JDK HTTP container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-jetty/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-jetty/dependencies.html" target="_top">
     jersey-test-framework-provider-jetty
 </a>
 </td><td align="left">Jersey Test Framework - Jetty HTTP container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-netty/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-netty/dependencies.html" target="_top">
     jersey-test-framework-provider-netty
 </a>
 </td><td align="left">Jersey Test Framework - Netty container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-simple/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-simple/dependencies.html" target="_top">
     jersey-test-framework-provider-simple
 </a>
 </td><td align="left">Jersey Test Framework - Simple HTTP container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-test-framework-util/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-test-framework-util/dependencies.html" target="_top">
     jersey-test-framework-util
 </a>
 </td><td align="left">Jersey Test Framework Utils</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/memleak-test-common/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/memleak-test-common/dependencies.html" target="_top">
     memleak-test-common
 </a>
 </td><td align="left">Jersey test framework umbrella project</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.test-framework.providers"></a><p class="title"><b>Table&nbsp;2.7.&nbsp;Jersey Test Framework Providers</b></p><div class="table-contents"><table class="table" summary="Jersey Test Framework Providers" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Test Framework Providers</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-bundle/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-bundle/dependencies.html" target="_top">
     jersey-test-framework-provider-bundle
 </a>
 </td><td align="left">Jersey Test Framework Providers Bundle</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-external/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-external/dependencies.html" target="_top">
     jersey-test-framework-provider-external
 </a>
 </td><td align="left">Jersey Test Framework - External container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-grizzly2/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-grizzly2/dependencies.html" target="_top">
     jersey-test-framework-provider-grizzly2
 </a>
 </td><td align="left">Jersey Test Framework - Grizzly2 container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-inmemory/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-inmemory/dependencies.html" target="_top">
     jersey-test-framework-provider-inmemory
 </a>
 </td><td align="left">Jersey Test Framework - InMemory container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-jdk-http/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-jdk-http/dependencies.html" target="_top">
     jersey-test-framework-provider-jdk-http
 </a>
 </td><td align="left">Jersey Test Framework - JDK HTTP container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-jetty/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-jetty/dependencies.html" target="_top">
     jersey-test-framework-provider-jetty
 </a>
 </td><td align="left">Jersey Test Framework - Jetty HTTP container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-netty/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-netty/dependencies.html" target="_top">
     jersey-test-framework-provider-netty
 </a>
 </td><td align="left">Jersey Test Framework - Netty container</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-simple/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-test-framework-provider-simple/dependencies.html" target="_top">
     jersey-test-framework-provider-simple
 </a>
 </td><td align="left">Jersey Test Framework - Simple HTTP container</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.containers.glassfish"></a><p class="title"><b>Table&nbsp;2.8.&nbsp;Jersey Glassfish Bundles</b></p><div class="table-contents"><table class="table" summary="Jersey Glassfish Bundles" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Glassfish Bundles</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-gf-ejb/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-gf-ejb/dependencies.html" target="_top">
     jersey-gf-ejb
 </a>
 </td><td align="left">Jersey EJB for GlassFish integration</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.security"></a><p class="title"><b>Table&nbsp;2.9.&nbsp;Security</b></p><div class="table-contents"><table class="table" summary="Security" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Security</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/oauth1-client/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/oauth1-client/dependencies.html" target="_top">
     oauth1-client
 </a>
 </td><td align="left">Module that adds an OAuth 1 support to Jersey client.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/oauth1-server/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/oauth1-server/dependencies.html" target="_top">
     oauth1-server
 </a>
 </td><td align="left">Module that adds an OAuth 1 support to Jersey server</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/oauth1-signature/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/oauth1-signature/dependencies.html" target="_top">
     oauth1-signature
 </a>
 </td><td align="left">OAuth1 signature module</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/oauth2-client/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/oauth2-client/dependencies.html" target="_top">
     oauth2-client
 </a>
 </td><td align="left">Module that adds an OAuth 2 support to Jersey client</td></tr></tbody></table></div></div><br class="table-break"><div class="table"><a name="dependencies-table-org.glassfish.jersey.examples"></a><p class="title"><b>Table&nbsp;2.10.&nbsp;Jersey Examples</b></p><div class="table-contents"><table class="table" summary="Jersey Examples" width="100%" border="1"><colgroup><col width="22%" align="left" class="c1"><col width="78%" align="left" class="c3"></colgroup><thead><tr><th colspan="2" align="center">Jersey Examples</th></tr></thead><tbody><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-helloworld-webapp/additional-bundle/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-helloworld-webapp/additional-bundle/dependencies.html" target="_top">
     additional-bundle
 </a>
 </td><td align="left">OSGi Helloworld Webapp - additional bundle</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-helloworld-webapp/alternate-version-bundle/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-helloworld-webapp/alternate-version-bundle/dependencies.html" target="_top">
     alternate-version-bundle
 </a>
 </td><td align="left">OSGi Helloworld Webapp - alternate version bundle</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/assemblies/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/assemblies/dependencies.html" target="_top">
     assemblies
 </a>
 </td><td align="left">Jersey examples shared assembly types.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/bean-validation-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/bean-validation-webapp/dependencies.html" target="_top">
     bean-validation-webapp
 </a>
 </td><td align="left">Jersey Bean Validation (JSR-349) example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/bookmark/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/bookmark/dependencies.html" target="_top">
     bookmark
 </a>
 </td><td align="left">Jersey Bookmark example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/bookmark-em/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/bookmark-em/dependencies.html" target="_top">
     bookmark-em
 </a>
 </td><td align="left">Jersey Bookmark example using EntityManager.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/bookstore-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/bookstore-webapp/dependencies.html" target="_top">
     bookstore-webapp
 </a>
 </td><td align="left">Jersey MVC Bookstore example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-http-service/bundle/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-http-service/bundle/dependencies.html" target="_top">
     bundle
 </a>
 </td><td align="left">OSGi HttpService example bundle</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/cdi-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/cdi-webapp/dependencies.html" target="_top">
     cdi-webapp
 </a>
 </td><td align="left">Jersey CDI example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/clipboard/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/clipboard/dependencies.html" target="_top">
     clipboard
 </a>
 </td><td align="left">Jersey clipboard example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/clipboard-programmatic/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/clipboard-programmatic/dependencies.html" target="_top">
     clipboard-programmatic
 </a>
 </td><td align="left">Jersey programmatic resource API clipboard example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/declarative-linking/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/declarative-linking/dependencies.html" target="_top">
     declarative-linking
 </a>
 </td><td align="left">Declarative Hyperlinking - Jersey Sample</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/entity-filtering/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/entity-filtering/dependencies.html" target="_top">
     entity-filtering
 </a>
 </td><td align="left">Jersey Entity Data Filtering Example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/entity-filtering-security/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/entity-filtering-security/dependencies.html" target="_top">
     entity-filtering-security
 </a>
 </td><td align="left">Jersey Entity Data Filtering Security Example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/entity-filtering-selectable/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/entity-filtering-selectable/dependencies.html" target="_top">
     entity-filtering-selectable
 </a>
 </td><td align="left">Jersey Entity Data Filtering Selectable Example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/exception-mapping/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/exception-mapping/dependencies.html" target="_top">
     exception-mapping
 </a>
 </td><td align="left">Jersey example showing exception mappers in action.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/extended-wadl-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/extended-wadl-webapp/dependencies.html" target="_top">
     extended-wadl-webapp
 </a>
 </td><td align="left">Extended WADL example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/feed-combiner-java8-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/feed-combiner-java8-webapp/dependencies.html" target="_top">
     feed-combiner-java8-webapp
 </a>
 </td><td align="left">Jersey Web Application (Servlet) examples parent POM.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/flight-management-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/flight-management-webapp/dependencies.html" target="_top">
     flight-management-webapp
 </a>
 </td><td align="left">Jersey Flight Management Demo Web Application Example</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/freemarker-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/freemarker-webapp/dependencies.html" target="_top">
     freemarker-webapp
 </a>
 </td><td align="left">Jersey Freemarker example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-helloworld-webapp/functional-test/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-helloworld-webapp/functional-test/dependencies.html" target="_top">
     functional-test
 </a>
 </td><td align="left">Jersey examples</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-http-service/functional-test/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-http-service/functional-test/dependencies.html" target="_top">
     functional-test
 </a>
 </td><td align="left">OSGi HttpService example</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/groovy/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/groovy/dependencies.html" target="_top">
     groovy
 </a>
 </td><td align="left">Groovy Jersey</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld/dependencies.html" target="_top">
     helloworld
 </a>
 </td><td align="left">Jersey annotated resource class "Hello world" example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld-benchmark/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld-benchmark/dependencies.html" target="_top">
     helloworld-benchmark
 </a>
 </td><td align="left">Jersey "Hello World" benchmark example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld-cdi2-se/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld-cdi2-se/dependencies.html" target="_top">
     helloworld-cdi2-se
 </a>
 </td><td align="left">Jersey "Hello world" example with CDI 2 SE.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld-netty/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld-netty/dependencies.html" target="_top">
     helloworld-netty
 </a>
 </td><td align="left">Jersey "Hello world" example on Netty container.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld-programmatic/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld-programmatic/dependencies.html" target="_top">
     helloworld-programmatic
 </a>
 </td><td align="left">Jersey programmatic resource API "Hello world" example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld-pure-jax-rs/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld-pure-jax-rs/dependencies.html" target="_top">
     helloworld-pure-jax-rs
 </a>
 </td><td align="left">Example using only the standard JAX-RS API's and the lightweight HTTP server bundled in JDK.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld-spring-annotations/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld-spring-annotations/dependencies.html" target="_top">
     helloworld-spring-annotations
 </a>
 </td><td align="left">Spring 4 Integration Jersey Example</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld-spring-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld-spring-webapp/dependencies.html" target="_top">
     helloworld-spring-webapp
 </a>
 </td><td align="left">Spring 4 Integration Jersey Example</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/helloworld-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/helloworld-webapp/dependencies.html" target="_top">
     helloworld-webapp
 </a>
 </td><td align="left">Jersey annotated resource class "Hello world" example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/helloworld-weld/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/helloworld-weld/dependencies.html" target="_top">
     helloworld-weld
 </a>
 </td><td align="left">Jersey annotated resource class "Hello world" example with Weld support.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/http-patch/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/http-patch/dependencies.html" target="_top">
     http-patch
 </a>
 </td><td align="left">Jersey example for implementing generic PATCH support via JAX-RS reader interceptor.
         Taken from Gerard Davison's blog entry:
         http://kingsfleet.blogspot.co.uk/2014/02/transparent-patch-support-in-jax-rs-20.html</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/http-trace/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/http-trace/dependencies.html" target="_top">
     http-trace
 </a>
 </td><td align="left">Jersey HTTP TRACE support example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/https-clientserver-grizzly/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/https-clientserver-grizzly/dependencies.html" target="_top">
     https-clientserver-grizzly
 </a>
 </td><td align="left">Jersey HTTPS Client/Server example on Grizzly.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/https-server-glassfish/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/https-server-glassfish/dependencies.html" target="_top">
     https-server-glassfish
 </a>
 </td><td align="left">Jersey HTTPS server on GlassFish example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/java8-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/java8-webapp/dependencies.html" target="_top">
     java8-webapp
 </a>
 </td><td align="left">Java 8 Types WebApp Example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jaxb/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jaxb/dependencies.html" target="_top">
     jaxb
 </a>
 </td><td align="left">Jersey JAXB example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jaxrs-types-injection/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jaxrs-types-injection/dependencies.html" target="_top">
     jaxrs-types-injection
 </a>
 </td><td align="left">Jersey JAX-RS types injection example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/jersey-ejb/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/jersey-ejb/dependencies.html" target="_top">
     jersey-ejb
 </a>
 </td><td align="left">Jersey Web Application (Servlet) examples parent POM.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/json-binding-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/json-binding-webapp/dependencies.html" target="_top">
     json-binding-webapp
 </a>
 </td><td align="left">Jersey JSON Binding example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/json-jackson/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/json-jackson/dependencies.html" target="_top">
     json-jackson
 </a>
 </td><td align="left">Jersey JSON with Jackson example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/json-jackson1/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/json-jackson1/dependencies.html" target="_top">
     json-jackson1
 </a>
 </td><td align="left">Jersey JSON with Jackson 1.x example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/json-jettison/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/json-jettison/dependencies.html" target="_top">
     json-jettison
 </a>
 </td><td align="left">Jersey JSON with Jettison JAXB example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/json-moxy/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/json-moxy/dependencies.html" target="_top">
     json-moxy
 </a>
 </td><td align="left">Jersey JSON with MOXy example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/json-processing-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/json-processing-webapp/dependencies.html" target="_top">
     json-processing-webapp
 </a>
 </td><td align="left">Jersey JSON-P (JSR 353) example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/json-with-padding/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/json-with-padding/dependencies.html" target="_top">
     json-with-padding
 </a>
 </td><td align="left">Jersey JSON with Padding example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-helloworld-webapp/lib-bundle/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-helloworld-webapp/lib-bundle/dependencies.html" target="_top">
     lib-bundle
 </a>
 </td><td align="left">OSGi Helloworld Webapp - lib bundle</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/managed-beans-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/managed-beans-webapp/dependencies.html" target="_top">
     managed-beans-webapp
 </a>
 </td><td align="left">Jersey Managed Beans Web Application Example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/managed-client/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/managed-client/dependencies.html" target="_top">
     managed-client
 </a>
 </td><td align="left">Jersey managed client example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/managed-client-simple-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/managed-client-simple-webapp/dependencies.html" target="_top">
     managed-client-simple-webapp
 </a>
 </td><td align="left">Jersey Web Application (Servlet) examples parent POM.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/managed-client-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/managed-client-webapp/dependencies.html" target="_top">
     managed-client-webapp
 </a>
 </td><td align="left">Jersey managed client web application example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/monitoring-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/monitoring-webapp/dependencies.html" target="_top">
     monitoring-webapp
 </a>
 </td><td align="left">Jersey Web Application (Servlet) examples parent POM.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/multipart-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/multipart-webapp/dependencies.html" target="_top">
     multipart-webapp
 </a>
 </td><td align="left">Jersey Multipart example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/oauth-client-twitter/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/oauth-client-twitter/dependencies.html" target="_top">
     oauth-client-twitter
 </a>
 </td><td align="left">Twitter client using OAuth 1 support for Jersey that retrieves Tweets from the home timeline of a
         registered Twitter account.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/oauth2-client-google-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/oauth2-client-google-webapp/dependencies.html" target="_top">
     oauth2-client-google-webapp
 </a>
 </td><td align="left">Google API data retrieving example using OAuth2 for authentication and authorization</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/open-tracing/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/open-tracing/dependencies.html" target="_top">
     open-tracing
 </a>
 </td><td align="left">Jersey OpenTracing example</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-helloworld-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-helloworld-webapp/dependencies.html" target="_top">
     osgi-helloworld-webapp
 </a>
 </td><td align="left">Jersey examples</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-http-service/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-http-service/dependencies.html" target="_top">
     osgi-http-service
 </a>
 </td><td align="left">OSGi HttpService example</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/reload/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/reload/dependencies.html" target="_top">
     reload
 </a>
 </td><td align="left">Jersey resource configuration reload example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/rx-client-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/rx-client-webapp/dependencies.html" target="_top">
     rx-client-webapp
 </a>
 </td><td align="left">Jersey Reactive Client WebApp Example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/server-async/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/server-async/dependencies.html" target="_top">
     server-async
 </a>
 </td><td align="left">Jersey JAX-RS asynchronous server-side example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/server-async-managed/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/server-async-managed/dependencies.html" target="_top">
     server-async-managed
 </a>
 </td><td align="left">Jersey JAX-RS asynchronous server-side example with custom Jersey executor providers.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/server-async-standalone/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/server-async-standalone/dependencies.html" target="_top">
     server-async-standalone
 </a>
 </td><td align="left">Standalone Jersey JAX-RS asynchronous server-side processing example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/server-async-standalone/server-async-standalone-client/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/server-async-standalone/server-async-standalone-client/dependencies.html" target="_top">
     server-async-standalone-client
 </a>
 </td><td align="left">Standalone Jersey JAX-RS asynchronous server-side processing example client.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/server-async-standalone/server-async-standalone-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/server-async-standalone/server-async-standalone-webapp/dependencies.html" target="_top">
     server-async-standalone-webapp
 </a>
 </td><td align="left">Standalone Jersey JAX-RS asynchronous server-side processing example web application.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/server-sent-events-jaxrs/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/server-sent-events-jaxrs/dependencies.html" target="_top">
     server-sent-events-jaxrs
 </a>
 </td><td align="left">Jersey JAX-RS 2.1 Server-Sent Events example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/server-sent-events-jersey/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/server-sent-events-jersey/dependencies.html" target="_top">
     server-sent-events-jersey
 </a>
 </td><td align="left">Jersey Server-Sent Events example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/servlet3-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/servlet3-webapp/dependencies.html" target="_top">
     servlet3-webapp
 </a>
 </td><td align="left">Jersey Servlet 3 example with missing servlet-class in the web.xml file</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/shortener-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/shortener-webapp/dependencies.html" target="_top">
     shortener-webapp
 </a>
 </td><td align="left">Jersey Shortener Webapp (MVC + Bean Validation).</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/simple-console/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/simple-console/dependencies.html" target="_top">
     simple-console
 </a>
 </td><td align="left">Jersey Simple Console example</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/sparklines/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/sparklines/dependencies.html" target="_top">
     sparklines
 </a>
 </td><td align="left">Jersey examples</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/sse-item-store-jaxrs-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/sse-item-store-jaxrs-webapp/dependencies.html" target="_top">
     sse-item-store-jaxrs-webapp
 </a>
 </td><td align="left">Jersey JAX-RS 2.1 SSE API-based item store example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/sse-item-store-jersey-webapp/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/sse-item-store-jersey-webapp/dependencies.html" target="_top">
     sse-item-store-jersey-webapp
 </a>
 </td><td align="left">Jersey SSE API-based item store example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/sse-twitter-aggregator/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/sse-twitter-aggregator/dependencies.html" target="_top">
     sse-twitter-aggregator
 </a>
 </td><td align="left">Jersey SSE Twitter Message Aggregator Example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/system-properties-example/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/system-properties-example/dependencies.html" target="_top">
     system-properties-example
 </a>
 </td><td align="left">Jersey system properties example.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/tone-generator/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/tone-generator/dependencies.html" target="_top">
     tone-generator
 </a>
 </td><td align="left">Jersey examples</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/osgi-helloworld-webapp/war-bundle/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/osgi-helloworld-webapp/war-bundle/dependencies.html" target="_top">
     war-bundle
 </a>
 </td><td align="left">OSGi Helloworld Webapp WAR bundle</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/webapp-example-parent/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/webapp-example-parent/dependencies.html" target="_top">
     webapp-example-parent
 </a>
 </td><td align="left">Jersey Web Application (Servlet) examples parent POM.</td></tr><tr><td align="left">
-<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/xml-moxy/dependencies.html" target="_top">
+<a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/xml-moxy/dependencies.html" target="_top">
     xml-moxy
 </a>
 </td><td align="left">Jersey XML MOXy example.</td></tr></tbody></table></div></div><br class="table-break"></div></div><div lang="en" class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="jaxrs-resources"></a>Chapter&nbsp;3.&nbsp;JAX-RS Application, Resources and Sub-Resources</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="section"><a href="#d0e2145">3.1. Root Resource Classes</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e2184">3.1.1. @Path</a></span></dt><dt><span class="section"><a href="#d0e2234">3.1.2. @GET, @PUT, @POST, @DELETE, ... (HTTP Methods)</a></span></dt><dt><span class="section"><a href="#d0e2272">3.1.3. @Produces</a></span></dt><dt><span class="section"><a href="#d0e2351">3.1.4. @Consumes</a></span></dt></dl></dd><dt><span class="section"><a href="#d0e2376">3.2. Parameter Annotations (@*Param)</a></span></dt><dt><span class="section"><a href="#d0e2647">3.3. Sub-resources</a></span></dt><dt><span class="section"><a href="#d0e2794">3.4. Life-cycle of Root Resource Classes</a></span></dt><dt><span class="section"><a href="#d0e2865">3.5. Rules of Injection</a></span></dt><dt><span class="section"><a href="#d0e2973">3.6. Use of @Context</a></span></dt><dt><span class="section"><a href="#d0e3001">3.7. Programmatic resource model</a></span></dt></dl></div><p>This chapter presents an overview of the core JAX-RS concepts - resources and sub-resources.</p><p>The JAX-RS 2.1.6 JavaDoc can be found online <a class="link" href="https://github.com/eclipse-ee4j/jaxrs-api/apidocs/index.html" target="_top">here</a>.
@@ -1471,7 +1471,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
             resource class using JAX-RS annotations. The example code shown here is
             from one of the samples that ships with Jersey, the zip file of which can
             be found in the maven repository
-            <a class="link" href="http://central.maven.org/maven2/org/glassfish/jersey/examples/helloworld//2.47-SNAPSHOT/" target="_top">here</a>.
+            <a class="link" href="http://central.maven.org/maven2/org/glassfish/jersey/examples/helloworld//2.48-SNAPSHOT/" target="_top">here</a>.
         </p><p>
             </p><div class="example"><a name="d0e2178"></a><p class="title"><b>Example&nbsp;3.1.&nbsp;Simple hello world root resource class</b></p><div class="example-contents"><pre class="&#xA;    toolbar: false;&#xA;    brush: java;&#xA;    ">package org.glassfish.jersey.examples.helloworld;
 
@@ -2310,7 +2310,7 @@ HttpServer server = JdkHttpServerFactory.createHttpServer(baseUri, config);</pre
                         <pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-jdk-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div></div><p><br class="example-break">
                 </p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="deployment.http.grizzly"></a>4.5.1.2.&nbsp;Grizzly HTTP Server</h4></div></div></div><p><a class="link" href="https://javaee.github.io/grizzly/" target="_top">Grizzly</a> is a multi-protocol framework built on top of Java <a class="link" href="http://docs.oracle.com/javase/6/docs/api/java/nio/package-summary.html" target="_top">NIO</a>. Grizzly aims to simplify
                     development of robust and scalable servers.
@@ -2335,7 +2335,7 @@ HttpServer server = JdkHttpServerFactory.createHttpServer(baseUri, config);</pre
                     <pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-grizzly2-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div></div><br class="example-break"><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                         Jersey uses Grizzly extensively in the project unit and end-to-end tests via
                         <a class="link" href="#test-framework" title="Chapter&nbsp;29.&nbsp;Jersey Test Framework">test framework</a>.
@@ -2358,7 +2358,7 @@ HttpServer server = JdkHttpServerFactory.createHttpServer(baseUri, config);</pre
                     <pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-simple-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div></div><br class="example-break"><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                         Simple framework HTTP container does not support deployment on context paths other than
                         root path ("<code class="literal">/</code>"). Non-root context path is ignored during deployment.
@@ -2385,7 +2385,7 @@ Server server = JettyHttpContainerFactory.createServer(baseUri, config);</pre>
                     <pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-jetty-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div></div><br class="example-break"><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                         Jetty HTTP container does not support deployment on context paths other than
                         root path ("<code class="literal">/</code>"). Non-root context path is ignored during deployment.
@@ -2402,7 +2402,7 @@ Channel server = NettyHttpContainerProvider.createServer(baseUri, resourceConfig
                     <pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.containers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-container-netty-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div></div><br class="example-break"><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                         Netty HTTP container does not support deployment on context paths other than
                         root path ("<code class="literal">/</code>"). Non-root context path is ignored during deployment.
@@ -2962,7 +2962,7 @@ examples$ cd osgi-http-service/bundle
 bundle$ mvn clean package</pre><p>
 
                 You can also get the binary readily compiled from
-                <a class="link" href="https://maven.java.net/content/repositories/releases/org/glassfish/jersey/examples/osgi-http-service/bundle/2.47-SNAPSHOT" target="_top">Java.net Maven Repository</a>.
+                <a class="link" href="https://maven.java.net/content/repositories/releases/org/glassfish/jersey/examples/osgi-http-service/bundle/2.48-SNAPSHOT" target="_top">Java.net Maven Repository</a>.
             </p><p>
                 2) Install into OSGi runtime:
                 </p><pre class="&#xA;    toolbar: false;&#xA;    brush: bash shell;&#xA;    ">
@@ -4309,14 +4309,14 @@ client.register(RxObservableInvokerProvider.class);</pre></div></div><p><br clas
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext.rx&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-rx-client-rxjava&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
                     After this step you can use the extended client right away. The dependency transitively adds the following
                     dependencies to your class-path as well: <code class="literal">io.reactivex:rxjava</code>.
                 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                         If you're not using Maven (or other dependency management tool) make sure to add also all the transitive
-                        dependencies of this extension module (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-rx-client-rxjava/dependencies.html" target="_top">jersey-rx-client-rxjava</a>) on the class-path.
+                        dependencies of this extension module (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-rx-client-rxjava/dependencies.html" target="_top">jersey-rx-client-rxjava</a>) on the class-path.
                     </p></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="rx-client.rxjava2"></a>6.3.2.&nbsp;RxJava &#8211; Flowable</h3></div></div></div><p>
                 <a class="link" href="https://github.com/ReactiveX/RxJava" target="_top">RxJava</a>, contributed by Netflix, is probably the most advanced reactive library for Java at the moment. It's
                 used for composing asynchronous and event-based programs by using observable sequences. It uses the
@@ -4354,14 +4354,14 @@ client.register(RxFlowableInvokerProvider.class);</pre></div></div><p><br class=
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext.rx&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-rx-client-rxjava2&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
                     After this step you can use the extended client right away. The dependency transitively adds the following
                     dependencies to your class-path as well: <code class="literal">io.reactivex:rxjava2</code>.
                 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                         If you're not using Maven (or other dependency management tool) make sure to add also all the transitive
-                        dependencies of this extension module (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-rx-client-rxjava2/dependencies.html" target="_top">jersey-rx-client-rxjava2</a>) on the class-path.
+                        dependencies of this extension module (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-rx-client-rxjava2/dependencies.html" target="_top">jersey-rx-client-rxjava2</a>) on the class-path.
                     </p></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="rx-client.guava"></a>6.3.3.&nbsp;Guava &#8211; ListenableFuture and Futures</h3></div></div></div><p>
                 <a class="link" href="https://guava.dev/" target="_top">Guava</a>, contributed by Google, also contains a type, <a class="link" href="https://guava.dev/releases/33.4.8-jre/api/docs/com/google/common/util/concurrent/ListenableFuture.html" target="_top">ListenableFuture</a>, which can be decorated with
                 listeners that are notified when the future completes. The <code class="literal">ListenableFuture</code> can be combined with
@@ -4397,14 +4397,14 @@ ListenableFuture&lt;Response&gt; response = client.target("http://jersey.java.ne
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext.rx&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-rx-client-guava&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
                     After this step you can use the extended client right away. The dependency transitively adds the following
                     dependencies to your class-path as well: <code class="literal">com.google.guava:guava</code>.
                 </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                         If you're not using Maven (or other dependency management tool) make sure to add also all the transitive
-                        dependencies of this extension module (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/project/jersey-rx-client-guava/dependencies.html" target="_top">jersey-rx-client-guava</a>) on the class-path.
+                        dependencies of this extension module (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/project/jersey-rx-client-guava/dependencies.html" target="_top">jersey-rx-client-guava</a>) on the class-path.
                     </p></div></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="rx.client.spi"></a>6.4.&nbsp;Implementing Support for Custom Reactive Libraries (SPI)</h2></div></div></div><p>
             In case you want to bring support for some other library providing Reactive Programming Model into your application
             you can extend functionality of Reactive JAX-RS Client by implementing <a class="link" href="https://jakartaee.github.io/rest/apidocs/2.1.6/javax/ws/rs/client/RxInvokerProvider.html" target="_top">RxInvokerProvider</a>, registering
@@ -5430,10 +5430,10 @@ try {
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-media-moxy&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-moxy/dependencies.html" target="_top">jersey-media-moxy</a>) on the classpath.
+                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-moxy/dependencies.html" target="_top">jersey-media-moxy</a>) on the classpath.
                 </p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="moxy-registration"></a>9.1.2.2.&nbsp;Configure and register</h4></div></div></div><p>
                     As stated in the <a class="xref" href="#deployment.autodiscoverable" title="4.3.&nbsp;Auto-Discoverable Features">Section&nbsp;4.3, &#8220;Auto-Discoverable Features&#8221;</a> as well as earlier in this chapter, MOXy media
                     module is one of the modules where you don't need to explicitly register its <code class="literal">Feature</code>s
@@ -5524,10 +5524,10 @@ final Application application = new ResourceConfig()
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-media-json-processing&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-processing/dependencies.html" target="_top">jersey-media-json-processing</a>)
+                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-processing/dependencies.html" target="_top">jersey-media-json-processing</a>)
                     on the class-path.
                 </p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="jsonp-registration"></a>9.1.3.2.&nbsp;Configure and register</h4></div></div></div><p>
                     As stated in <a class="xref" href="#deployment.autodiscoverable" title="4.3.&nbsp;Auto-Discoverable Features">Section&nbsp;4.3, &#8220;Auto-Discoverable Features&#8221;</a> JSON-Processing media module is one of the
@@ -5570,7 +5570,7 @@ final Application application = new ResourceConfig()
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-media-json-jackson&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
                     To use Jackson 1.x it'll look like:
@@ -5578,11 +5578,11 @@ final Application application = new ResourceConfig()
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-media-json-jackson1&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-jackson/dependencies.html" target="_top">jersey-media-json-jackson</a> or
-                    <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-jackson1/dependencies.html" target="_top">jersey-media-json-jackson1</a>) on the classpath.
+                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-jackson/dependencies.html" target="_top">jersey-media-json-jackson</a> or
+                    <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-jackson1/dependencies.html" target="_top">jersey-media-json-jackson1</a>) on the classpath.
                 </p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="jackson-registration"></a>9.1.4.2.&nbsp;Configure and register</h4></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                         Note that there is a difference in namespaces between Jackson 1.x (<code class="literal">org.codehaus.jackson</code>)
                         and Jackson 2.x (<code class="literal">com.fasterxml.jackson</code>).
@@ -5661,10 +5661,10 @@ final Application application = new ResourceConfig()
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-media-json-jettison&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-jettison/dependencies.html" target="_top">jersey-media-json-jettison</a>) on
+                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-jettison/dependencies.html" target="_top">jersey-media-json-jettison</a>) on
                     the classpath.
                 </p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8780"></a>9.1.5.2.&nbsp;JSON Notations</h4></div></div></div><p>
                     <code class="literal">JettisonConfig</code> allows you to use two JSON notations. Each of these notations serializes
@@ -5953,11 +5953,11 @@ public JaxbBean getSimpleJSONP() {
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-media-json-binding&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
                     If you're not using Maven make sure to have all needed dependencies
-                    (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-json-binding/dependencies.html" target="_top">jersey-media-json-binding</a>) on the classpath.
+                    (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-json-binding/dependencies.html" target="_top">jersey-media-json-binding</a>) on the classpath.
                 </p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="json.jsonb-registration"></a>9.1.7.2.&nbsp;Configure and register</h4></div></div></div><p>
                     As stated in <a class="xref" href="#deployment.autodiscoverable" title="4.3.&nbsp;Auto-Discoverable Features">Section&nbsp;4.3, &#8220;Auto-Discoverable Features&#8221;</a> JSON-Binding media module is one of the
                     modules where you don't need to explicitly register its
@@ -6192,7 +6192,7 @@ Client client = ClientBuilder.newClient(config);
             </p><div class="example"><a name="d0e9447"></a><p class="title"><b>Example&nbsp;9.41.&nbsp;Add <code class="literal">jersey-media-moxy</code> dependency.</b></p><div class="example-contents"><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-media-moxy&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div></div><br class="example-break"><div class="example"><a name="d0e9455"></a><p class="title"><b>Example&nbsp;9.42.&nbsp;Register the <code class="literal">MoxyXmlFeature</code> class.</b></p><div class="example-contents"><pre class="&#xA;    toolbar: false;&#xA;    brush: java;&#xA;    ">final ResourceConfig config = new ResourceConfig()
     .packages("org.glassfish.jersey.examples.xmlmoxy")
     .register(MoxyXmlFeature.class);</pre></div></div><br class="example-break"><div class="example"><a name="d0e9463"></a><p class="title"><b>Example&nbsp;9.43.&nbsp;Configure and register an <code class="literal">MoxyXmlFeature</code> instance.</b></p><div class="example-contents"><pre class="&#xA;    toolbar: false;&#xA;    brush: java;&#xA;    ">// Configure Properties.
@@ -6241,10 +6241,10 @@ final ResourceConfig config = new ResourceConfig()
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-media-multipart&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-media-multipart/dependencies.html" target="_top">jersey-media-multipart</a>) on the
+                    If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-media-multipart/dependencies.html" target="_top">jersey-media-multipart</a>) on the
                     class-path.
                 </p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="d0e9563"></a>9.3.1.2.&nbsp;Registration</h4></div></div></div><p>
                     Before you can use capabilities of the <code class="literal">jersey-media-multipart</code> module in your client/server code, you
@@ -7469,7 +7469,7 @@ URI u = response.getLink("framework").getUri();</pre><p>
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-declarative-linking&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
             Additionally you will need to add the following dependencies, if you are not deploying
@@ -7487,7 +7487,7 @@ URI u = response.getLink("framework").getUri();</pre><p>
     &lt;version&gt;3.0.4&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-            If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-declarative-linking/dependencies.html" target="_top">jersey-declarative-linking</a>) on
+            If you're not using Maven make sure to have all needed dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-declarative-linking/dependencies.html" target="_top">jersey-declarative-linking</a>) on
             the classpath.
         </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e11215"></a>13.2.&nbsp;Links in Representations</h2></div></div></div><p>
             Links are added to representations using the <code class="literal">@InjectLink</code> annotation on
@@ -8002,7 +8002,7 @@ final Application application = new ResourceConfig()
                 &lt;dependency&gt;
                     &lt;groupId&gt;org.glassfish.jersey.ext.microprofile&lt;/groupId&gt;
                     &lt;artifactId&gt;jersey-mp-config&lt;/artifactId&gt;
-                    &lt;version&gt;2.47-SNAPSHOT&lt;/scope&gt;
+                    &lt;version&gt;2.48-SNAPSHOT&lt;/scope&gt;
                 &lt;/dependency&gt;
             </pre><p>
             And the Microprofile Config implementation, such as Helidon:
@@ -8033,7 +8033,7 @@ final Application application = new ResourceConfig()
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
    &lt;groupId&gt;org.glassfish.jersey.ext.micrometer&lt;/groupId&gt;
    &lt;artifactId&gt;jersey-micrometer&lt;/artifactId&gt;
-   &lt;version&gt;2.47-SNAPSHOT&lt;/scope&gt;
+   &lt;version&gt;2.48-SNAPSHOT&lt;/scope&gt;
 &lt;/dependency&gt;</pre><p>
             After the dependency is added, the Micrometer can be configured as follows:
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: java;&#xA;    gutter: false;">final ResourceConfig resourceConfig = new ResourceConfig();
@@ -9158,7 +9158,7 @@ public class Resource {
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.security&lt;/groupId&gt;
     &lt;artifactId&gt;oauth1-server&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
                     Again, there is no need to add a direct dependency to the signature module, it will be transitively included.
                 </p><p>
@@ -9205,7 +9205,7 @@ public class Resource {
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.security&lt;/groupId&gt;
     &lt;artifactId&gt;oauth1-client&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
                     As mentioned earlier, there is no need to add a direct dependency to the signature module,
@@ -9381,7 +9381,7 @@ $ openssl rsa -in private.key -pubout</pre></div></div><br class="example-break"
                     </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.security&lt;/groupId&gt;
     &lt;artifactId&gt;oauth2-client&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
                 </p><p>
                     OAuth 2, in contrast with OAuth 1, is not a strictly defined protocol, rather a framework.
@@ -9978,11 +9978,11 @@ public static class CustomerAddressSubResource {
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-bean-validation&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
             </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
-                    If you're not using Maven make sure to have also all the transitive dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-bean-validation/dependencies.html" target="_top">jersey-bean-validation</a>) on
+                    If you're not using Maven make sure to have also all the transitive dependencies (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-bean-validation/dependencies.html" target="_top">jersey-bean-validation</a>) on
                     the classpath.
                 </p></div><p>
 
@@ -9996,7 +9996,7 @@ public static class CustomerAddressSubResource {
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-bean-validation&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
     &lt;exclusions&gt;
         &lt;exclusion&gt;
             &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
@@ -10536,12 +10536,12 @@ Server: Jetty(9.4.28)
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-entity-filtering&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
             </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                     If you're not using Maven make sure to have also all the transitive dependencies
-                    (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-entity-filtering/dependencies.html" target="_top">jersey-entity-filtering</a>) on the classpath.
+                    (see <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-entity-filtering/dependencies.html" target="_top">jersey-entity-filtering</a>) on the classpath.
                 </p></div><p>
         </p><p>
             The entity-filtering extension module provides three <code class="literal">Feature</code>s which you can register into server/client
@@ -11296,10 +11296,10 @@ public ShortenedLink createLink(@NotEmpty @FormParam("link") final String link) 
                 </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-mvc-bean-validation&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                and for non-Maven users the list of dependencies is available at <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc-bean-validation/dependencies.html" target="_top">jersey-mvc-bean-validation</a>.
+                and for non-Maven users the list of dependencies is available at <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc-bean-validation/dependencies.html" target="_top">jersey-mvc-bean-validation</a>.
             </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="mvc.registration"></a>22.5.&nbsp;Registration and Configuration</h2></div></div></div><p>
             To use the capabilities of Jersey MVC templating support in your JAX-RS/Jersey application you need to register
             specific JAX-RS <a class="link" href="https://jakartaee.github.io/rest/apidocs/2.1.6/javax/ws/rs/core/Feature.html" target="_top">Feature</a>s provided by the MVC modules. For <code class="literal">jersey-mvc</code> module it is
@@ -11383,10 +11383,10 @@ public ShortenedLink createLink(@NotEmpty @FormParam("link") final String link) 
                 </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-mvc-mustache&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                and for non-Maven users the list of dependencies is available at <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc-mustache/dependencies.html" target="_top">jersey-mvc-mustache</a>.
+                and for non-Maven users the list of dependencies is available at <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc-mustache/dependencies.html" target="_top">jersey-mvc-mustache</a>.
             </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="d0e16220"></a>22.6.2.&nbsp;Freemarker</h3></div></div></div><p>
                 An integration module for <a class="link" href="https://freemarker.apache.org/" target="_top">Freemarker</a>-based templating engine.
             </p><p>
@@ -11426,10 +11426,10 @@ public ShortenedLink createLink(@NotEmpty @FormParam("link") final String link) 
                 </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-mvc-freemarker&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                and for non-Maven users the list of dependencies is available at <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc-freemarker/dependencies.html" target="_top">jersey-mvc-freemarker</a>.
+                and for non-Maven users the list of dependencies is available at <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc-freemarker/dependencies.html" target="_top">jersey-mvc-freemarker</a>.
             </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="d0e16336"></a>22.6.3.&nbsp;JSP</h3></div></div></div><p>
                 An integration module for JSP-based templating engine.
             </p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Limitations of Jersey JSP MVC Templates</h3><p>
@@ -11489,10 +11489,10 @@ public ShortenedLink createLink(@NotEmpty @FormParam("link") final String link) 
                 </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-mvc-jsp&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
-                and for non-Maven users the list of dependencies is available at <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc-jsp/dependencies.html" target="_top">jersey-mvc-jsp</a>.
+                and for non-Maven users the list of dependencies is available at <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc-jsp/dependencies.html" target="_top">jersey-mvc-jsp</a>.
             </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="mvc.spi"></a>22.7.&nbsp;Writing Custom Templating Engines</h2></div></div></div><p>
             To add support for other (custom) templating engines into Jersey MVC Templating facility, you need to implement the
             <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/apidocs/snapshot/jersey/org/glassfish/jersey/server/mvc/spi/TemplateProcessor.html" target="_top">TemplateProcessor</a> and register this class into your application.
@@ -11545,12 +11545,12 @@ class MyTemplateProcessor implements TemplateProcessor&lt;String&gt; {
             </p></div><p>
             If you want to use just templating API infrastructure provided by Jersey for the MVC templating support in order to
             implement your custom support for a templating engine other than the ones provided by Jersey,
-            you will need to add the base <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-mvc/dependencies.html" target="_top">jersey-mvc</a> module into the list of your dependencies:
+            you will need to add the base <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-mvc/dependencies.html" target="_top">jersey-mvc</a> module into the list of your dependencies:
 
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-mvc&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
         </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e16483"></a>22.8.&nbsp;Other Examples</h2></div></div></div><p>To see an example of MVC (JSP) templating support in Jersey refer to the
             <a class="link" href="https://github.com/eclipse-ee4j/jersey/tree/master/examples/bookstore-webapp" target="_top">MVC (Bookstore) Example</a>.</p></div></div><div lang="en" class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="logging_chapter"></a>Chapter&nbsp;23.&nbsp;Logging</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="section"><a href="#logging">23.1. Logging traffic</a></span></dt><dd><dl><dt><span class="section"><a href="#d0e16498">23.1.1. Introduction</a></span></dt><dt><span class="section"><a href="#d0e16523">23.1.2. Configuration and registering</a></span></dt></dl></dd></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="logging"></a>23.1.&nbsp;Logging traffic</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="d0e16498"></a>23.1.1.&nbsp;Introduction</h3></div></div></div><p>
@@ -12876,7 +12876,7 @@ public class PerSessionComponentProvider implements ComponentProvider {
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext.cdi&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-cdi1x&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
             </pre><p>
         </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="cdi.support.request.scope.binding"></a>26.3.&nbsp;Request Scope Binding</h2></div></div></div><p>
@@ -12898,7 +12898,7 @@ public class PerSessionComponentProvider implements ComponentProvider {
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext.cdi&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-weld2-se&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
             </pre><p>
             Then you could use your CDI backed JAX-RS components in a Jersey application running in Grizzly HTTP container
@@ -12957,11 +12957,11 @@ public class SomeResource {
             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.ext&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-spring4&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
         </p><p>
             The above module adds transitive dependencies on Spring modules.
-            See <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.47-SNAPSHOT/jersey/project/jersey-spring4/dependencies.html" target="_top">jersey-spring4</a> module dependencies for more details about list and scope of dependencies.
+            See <a class="link" href="https://eclipse-ee4j.github.io/jersey.github.io/project-info/2.48-SNAPSHOT/jersey/project/jersey-spring4/dependencies.html" target="_top">jersey-spring4</a> module dependencies for more details about list and scope of dependencies.
             Please note the module depends on <a class="link" href="https://javaee.github.io/hk2/spring-bridge/" target="_top">The Spring/HK2 Bridge</a> that is used to inject Spring services into HK2 services
             or inject HK2 services into Spring services.
         </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e18410"></a>27.2.&nbsp;Registration and Configuration</h2></div></div></div><p>
@@ -13098,7 +13098,7 @@ public class SomeResource {
                         </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.test-framework.providers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-test-framework-provider-grizzly2&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
                     </p></li><li class="listitem"><p>
                         In-Memory container is not a real container. It starts Jersey application and directly calls internal
@@ -13109,7 +13109,7 @@ public class SomeResource {
                         </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.test-framework.providers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-test-framework-provider-inmemory&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
                     </p></li><li class="listitem"><p>
                         <code class="literal">HttpServer</code> from Oracle JDK is another supported test container.
@@ -13117,7 +13117,7 @@ public class SomeResource {
                         </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.test-framework.providers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-test-framework-provider-jdk-http&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
                     </p></li><li class="listitem"><p>
                         Simple container (<code class="literal">org.simpleframework.http</code>) is another light-weight HTTP container
@@ -13126,7 +13126,7 @@ public class SomeResource {
                         </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.test-framework.providers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-test-framework-provider-simple&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
                     </p></li><li class="listitem"><p>
                         Jetty container (<code class="literal">org.eclipse.jetty</code>) is another high-performance, light-weight HTTP server
@@ -13135,7 +13135,7 @@ public class SomeResource {
                         </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.test-framework.providers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-test-framework-provider-jetty&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
                     </p></li></ul></div><p>
         </p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="testng"></a>29.3.&nbsp;Running TestNG Tests</h2></div></div></div><p>
@@ -13151,7 +13151,7 @@ public class SomeResource {
                         </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.test-framework&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-test-framework-core&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;org.testng&lt;/groupId&gt;
@@ -13299,7 +13299,7 @@ public class SomeResource {
                 </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    ">&lt;dependency&gt;
     &lt;groupId&gt;org.glassfish.jersey.test-framework.providers&lt;/groupId&gt;
     &lt;artifactId&gt;jersey-test-framework-provider-external&lt;/artifactId&gt;
-    &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre><p>
 
                 As indicated, the "container" exposed by this module is just a wrapper or stub, that redirects all request to
@@ -13492,7 +13492,7 @@ public class SomeResource {
                         <pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">&lt;dependency&gt;
   &lt;groupId&gt;org.glassfish.jersey.inject&lt;/groupId&gt;
   &lt;artifactId&gt;jersey-hk2&lt;/artifactId&gt;
-  &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt;
+  &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></li><li class="listitem">
                         The direct support for <code class="literal">HK2 Binder</code> being able to be registered as in pre 2.26 Jersey has
                         been returned back in Jersey 2.29. Note, however, this is for backward compatibility purposes and
@@ -13717,7 +13717,7 @@ public class SomeResource {
                             The following needs to be included in addition from version 2.16 on:
                             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">
                                 &lt;dependency&gt; &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt; &lt;artifactId&gt;jersey-media-jaxb&lt;/artifactId&gt;
-                                &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
+                                &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
                         </p></li><li class="listitem"><p>
                             <code class="literal">MediaType</code>'s quality source parameters (<code class="literal">qs</code>) reuse the same
                             parsing as quality parameters. This means that values higher than
@@ -13744,11 +13744,11 @@ public class SomeResource {
                             The above dependency needs to be replaced with:
                             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">
                                 &lt;dependency&gt; &lt;groupId&gt;org.glassfish.jersey.ext.cdi&lt;/groupId&gt; &lt;artifactId&gt;jersey-cdi1x&lt;/artifactId&gt;
-                                &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
+                                &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
                             The following needs to be included in addition if you want to leverage CDI JTA support:
                             </p><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">
                                 &lt;dependency&gt; &lt;groupId&gt;org.glassfish.jersey.ext.cdi&lt;/groupId&gt; &lt;artifactId&gt;jersey-cdi1x-transaction&lt;/artifactId&gt;
-                                &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
+                                &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre><p>
                         </p></li></ul></div><p>
             </p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="mig-2.12"></a>31.16.&nbsp;Migrating from Jersey 2.11 to 2.12</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="mig-2.12-highlights"></a>31.16.1.&nbsp;Release 2.12 Highlights</h3></div></div></div><p>Following experimental APIs have been promoted to become part of public Jersey API:
                 </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
@@ -14629,7 +14629,7 @@ public class SomeResource {
                                     </td></tr></tbody></table></div></div><p><br class="table-break">
                     </p><div class="example"><a name="d0e21370"></a><p class="title"><b>Example&nbsp;31.5.&nbsp;Initializing JAXB-based support with MOXy</b></p><div class="example-contents"><pre class="&#xA;    toolbar: false;&#xA;    brush: xml;&#xA;    gutter: false;">
                             &lt;dependency&gt; &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt; &lt;artifactId&gt;jersey-media-moxy&lt;/artifactId&gt;
-                            &lt;version&gt;2.47-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre></div></div><p><br class="example-break">
+                            &lt;version&gt;2.48-SNAPSHOT&lt;/version&gt; &lt;/dependency&gt;</pre></div></div><p><br class="example-break">
                     </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
                             For JAXB-based support, MOXy is the default way in Jersey&nbsp;2. However, other providers (<code class="literal">
                             Jackson</code>,<code class="literal">Jettison</code>) can be used as well. The relevant feature has to be
